@@ -1,51 +1,66 @@
 <html>
-<?php echo 'Hey there this is Shantanu!!!'; ?>
-    <head>
-        <link src = "paperkit2/assets/css/paper-kit.css" type="text/css" rel="stylesheet">
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="styles.css" type="text/css">
-	      <link rel="icon" type="image/png" href="paperkit2/assets/img/favicon.ico">
-	      <link rel="apple-touch-icon" sizes="76x76" href="paperkit2/assets/img/apple-icon.png">
-        <link href="paperkit2/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet"/>
-        <link href="paperkit2/assets/css/demo.css" rel="stylesheet" />
 
-        <!--     Fonts and icons     -->
-	      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-	      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+<head>
+    <link src="paperkit2/assets/css/paper-kit.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <!--    <link href="paperkit2/assets/css/bootstrap.min.css" rel="stylesheet"/>-->
+    <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet"/>
+    <link href="paperkit2/assets/css/demo.css" rel="stylesheet"/>
 
-	      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-	      <link href="paperkit2/assets/css/nucleo-icons.css" rel="stylesheet">
-        <title>Web App</title>
-    </head>
+    <!--     Fonts and icons     -->
+    <link rel="apple-touch-icon" sizes="76x76" href="paperkit2/assets/img/apple-icon.png">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="paperkit2/assets/img/favicon.ico">
+    <link href="paperkit2/assets/css/nucleo-icons.css" rel="stylesheet">
 
-    <body>
-        <div id = "main-title">
-            <center><h1>Web Application</h1></center>
-        </div>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <title>Storys</title>
+</head>
 
-        <div id = "main-content">
-            <center>
-                <form action = "web_app_server.php" method="get">
-                    <h2>Login</h2>
-                    <table border="0">
-                        <tr>
-                            <td><label for="username">Username</label></td>
-                            <td><input type="text" name="username" id="username"></td>
-                        </tr>
+<body>
 
-                        <tr>
-                            <td><label for="password">Password</label></td>
-                            <td><input name="password" type="password" id="password"></td>
-                        </tr>
+<nav>
+    <h5 class="developed">Developed by
+        <img src="paperkit2/assets/img/faces/dheeraj.jpg">
+        <span class="blank-space"></span>Dheeraj &
+        <img src="paperkit2/assets/img/faces/shantanu.jpg">
+        <span class="blank-space"> </span>Shantanu</h5>
 
-                        <tr>
-                            <td><input type="submit" value="Submit" class="btn btn-success"/></td>
-                            <td><input type="reset" value="Reset" class="b-blue"/></td>
-                        </tr>
-                    </table>
-                </form>
-            </center>
-        </div>
-    </body>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                <i class="fa fa-facebook-square"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                <i class="fa fa-instagram"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial/paper-kit" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+<div class="moving-clouds" style="background-image: url('paperkit2/assets/img/clouds.png'); ">
+</div>
+
+<div class="outer-container">
+    <h1 class="main-title">Storys</h1>
+    <h3 class="tagline">Write | Endorse | Like | Share | Chat</h3>
+</div>
+
+
+</body>
 </html>
