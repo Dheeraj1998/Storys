@@ -1,22 +1,22 @@
 <html>
-<?php echo 'Hey there this is Shantanu!!!' ?>
+<?php echo 'Hey there this is Shantanu!!!'; ?>
     <head>
-        <link src = "paperkit-2/assets/css/paper-kit.css" type="text/css" rel="stylesheet">
+        <link src = "paperkit2/assets/css/paper-kit.css" type="text/css" rel="stylesheet">
         <meta charset="utf-8" />
-	      <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
-	      <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-        <link href="paperkit-2/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="paperkit-2/assets/css/paper-kit.css" rel="stylesheet"/>
-        <link href="paperkit-2/assets/css/demo.css" rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css" type="text/css">
+	      <link rel="icon" type="image/png" href="paperkit2/assets/img/favicon.ico">
+	      <link rel="apple-touch-icon" sizes="76x76" href="paperkit2/assets/img/apple-icon.png">
+        <link href="paperkit2/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet"/>
+        <link href="paperkit2/assets/css/demo.css" rel="stylesheet" />
 
         <!--     Fonts and icons     -->
 	      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
 	      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
 	      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-	      <link href="paperkit-2/assets/css/nucleo-icons.css" rel="stylesheet">
+	      <link href="paperkit2/assets/css/nucleo-icons.css" rel="stylesheet">
         <title>Web App</title>
-        <link rel="stylesheet" href="styles.css" type="text/css">
     </head>
 
     <body>

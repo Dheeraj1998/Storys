@@ -1,6 +1,8 @@
-b-blue {
-    background-color: #00bbff;
+.b-blue {
+    background-color: blue;
     color: white;
     border-radius: 10px;
+    width:150px;
 
+  height:50px;
 }
