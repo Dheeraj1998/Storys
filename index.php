@@ -53,14 +53,21 @@
 
 </nav>
 
-<div class="moving-clouds" style="background-image: url('paperkit2/assets/img/clouds.png'); ">
-</div>
+
+
+
+
+
+
+
 
 <div class="outer-container">
     <h1 class="main-title">Storys</h1>
     <h3 class="tagline">Write | Endorse | Like | Share | Chat</h3>
-</div>
+    <div class="moving-clouds" style="background-image: url('paperkit2/assets/img/clouds.png'); ">
 
+    </div>
+</div>
 
 </body>
 </html>
