@@ -1,101 +1,110 @@
 * {
-    color: white;
+	color: white;
 }
 
 body {
-    background-image: url('paperkit2/assets/img/daniel-olahh.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-    margin:0;
-    padding:0;
+	background-image: url('paperkit2/assets/img/daniel-olahh.jpg');
+	background-attachment: scroll;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 .outer-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0);
-    background-position: center center;
-    background-size: cover;
-    min-height: 100vh;
-    max-height: 999px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0);
+	background-position: center center;
+	background-size: cover;
+	min-height: 100vh;
+	max-height: 999px;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
 }
 
 h1.main-title {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: scriptina;
-    font-size: 200px;
-    color: #fff;
-    text-shadow: 0px 0px 10px #fff;
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: scriptina;
+	font-size: 200px;
+	color: #fff;
+	text-shadow: 0px 0px 10px #fff;
 }
 
 h3.tagline {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-shadow: 0px 0px 8px #fff;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	text-shadow: 0px 0px 8px #fff;
 }
 
 h5.developed {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 h5 {
-    margin: 10px;
-    padding: 0px;
-    position: relative;
-    float: left;
+	margin: 10px;
+	padding: 0px;
+	position: relative;
+	float: left;
 }
 
-h5 > img {
-    position: absolute;
-    height: 100%;
-    line-height: 100%;
-    border-radius: 50%;
-    width: 25px;
+h5>a>img {
+	position: absolute;
+	height: 100%;
+	line-height: 100%;
+	border-radius: 50%;
+	box-shadow: 0px 0px 5px 1px #ddd;
+	width: 25px;
 }
 
-h5 > span {
-    margin-left: 35px;
+h5>span {
+	margin-left: 35px;
 }
 
 ul {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 20px;
-    padding: 0;
-    list-style-type: none;
-    float: right;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 20px;
+	padding: 0;
+	list-style-type: none;
+	float: right;
 }
 
 li {
-    margin: 10px;
-    display: inline-block;
+	margin: 10px;
+	display: inline-block;
 }
 
-li > a {
-    font-size: 25px;
+li>a {
+	font-size: 25px;
 }
 
-li > a:hover {
-    cursor: pointer;
+li>a:hover {
+	cursor: pointer;
+}
+
+.github-profile-pic {
+	transition: all 0.7s;
+}
+
+.github-profile-pic:hover {
+	opacity: 0;
 }
 
 @font-face {
-    font-family: 'scriptina';
-    src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
+	font-family: 'scriptina';
+	src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
 }
