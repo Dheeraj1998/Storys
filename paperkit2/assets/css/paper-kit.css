@@ -5545,7 +5545,7 @@ textarea.form-control {
 .bootstrap-datetimepicker-widget table td.today > div:before {
   content: '';
   display: inline-block;
-  border: 0 0 7px 7px solid transparent;
+  border: 0px 0px 7px 7px solid transparent;
   border-bottom-color: #68B3C8;
   border-top-color: rgba(0, 0, 0, 0.2);
   position: absolute;

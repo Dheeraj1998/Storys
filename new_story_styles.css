@@ -1,0 +1,84 @@
+* {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url('paperkit2/assets/img/fabio-mangione.jpg');
+    background-attachment: scroll;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav {
+    height: 80px;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+h5{
+    font-size: 24px;
+    margin: 10px;
+    padding: 0px;
+    position: relative;
+    float: left;
+}
+
+h5 > span {
+    font: bold 30px scriptina;
+}
+
+ul {
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    padding: 0;
+    list-style-type: none;
+    float: right;
+}
+
+li {
+    margin: 10px;
+    display: inline-block;
+}
+
+li > a {
+    font-size: 25px;
+}
+
+li > a > i {
+    text-shadow: 0px 0px 6px #ccc;
+    transition: all 0.5s;
+}
+
+li > a:hover > i {
+    cursor: pointer;
+    text-shadow: 0px 0px 6px #fff;
+}
+
+i.fa-facebook-square {
+    color: #3b5998;
+}
+
+i.fa-twitter {
+    color: #55acee;
+}
+
+i.fa-instagram {
+    color: #e95950;
+}
+
+.github-profile-pic {
+    transition: all 0.7s;
+}
+
+.github-profile-pic:hover {
+    opacity: 0;
+}
+
+@font-face {
+    font-family: 'scriptina';
+    src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
+}

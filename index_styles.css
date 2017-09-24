@@ -1,0 +1,136 @@
+* {
+    color: white;
+}
+
+body {
+    background-image: url('paperkit2/assets/img/daniel-olahh.jpg');
+    background-attachment: scroll;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.outer-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    max-height: 999px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+h1.main-title {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: scriptina;
+    font-size: 200px;
+    color: #fff;
+    text-shadow: 0px 0px 10px #fff;
+}
+
+h3.tagline {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 0px 0px 8px #fff;
+}
+
+h5.developed {
+    font-size: 16px;
+}
+
+h5 {
+    margin: 10px;
+    padding: 0px;
+    position: relative;
+    float: left;
+}
+
+h5 > a > img {
+    position: absolute;
+    height: 100%;
+    line-height: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px #444;
+    width: 25px;
+}
+
+h5 > span {
+    margin-left: 35px;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 20px;
+    padding: 0;
+    list-style-type: none;
+    float: right;
+}
+
+li {
+    margin: 10px;
+    display: inline-block;
+}
+
+li > a {
+    font-size: 25px;
+}
+
+li > a:hover {
+    cursor: pointer;
+}
+
+.github-profile-pic {
+    transition: all 0.7s;
+}
+
+.github-profile-pic:hover {
+    opacity: 0;
+}
+
+.new-story a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.new-story {
+    padding: 7px 15px 7px 15px;
+    border-radius: 20px;
+    border: 2px solid white;
+    position: absolute;
+    bottom: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 0px 0px 4px #fff;
+}
+
+.new-story a:hover {
+    background-color: rgba(255,255,255,1);
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 0px 0px 4px #fff;
+}
+
+@font-face {
+    font-family: 'scriptina';
+    src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
+}

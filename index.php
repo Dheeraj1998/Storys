@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" type="text/css">
 	<meta charset="utf-8">
-	<link href="styles.css" rel="stylesheet" type="text/css">
+	<link href="index_styles.css" rel="stylesheet" type="text/css">
 	<!--    <link href="paperkit2/assets/css/bootstrap.min.css" rel="stylesheet"/>-->
 	<link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
 	<link href="paperkit2/assets/css/demo.css" rel="stylesheet">
@@ -67,6 +67,9 @@
 
 		<h3 class="tagline">Write | Endorse | Like | Share | Chat</h3>
 
+        <div class="new-story">
+            <a href="new_story.php">Create your first Story</a>
+        </div>
 
 		<div class="moving-clouds" style=
 		"background-image: url('paperkit2/assets/img/clouds.png');">
