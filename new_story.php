@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="new_story_styles.css"/>
     <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
-    <link href="paperkit2/assets/css/demo.css" rel="stylesheet">
+<!--    <link href="paperkit2/assets/css/demo.css" rel="stylesheet">-->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700'
           rel='stylesheet' type='text/css'>
     <link href=
@@ -47,14 +47,34 @@
         </li>
     </ul>
 </nav>
+<br>
 
-<section>
+<div class="main-container">
 
-</section>
+    <div class="left-container">
+        <div class="author-container">
+            <img src="paperkit2/assets/img/faces/shantanu.jpg"> <br>
+            <h4>Shantanu Pramanik</h4>
+            <div class="follow-container">
+                <div>Follows</div>
+                <div>Following</div>
+            </div>
+        </div>
 
-<aside>
+        <div class="hashtags-container">
 
-</aside>
+        </div>
+    </div>
+
+    <div class="middle-container">
+
+    </div>
+
+    <div class="right-container">
+
+    </div>
+</div>
+
 
 </body>
 

@@ -5,15 +5,16 @@
 }
 
 body {
-    background-image: url('paperkit2/assets/img/fabio-mangione.jpg');
-    background-attachment: scroll;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('paperkit2/assets/img/fabio-mangione.jpg');
+    background-attachment: fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 nav {
+    position: fixed;
+    width: 100%;
     height: 80px;
     background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
 }
@@ -24,10 +25,12 @@ h5{
     padding: 0px;
     position: relative;
     float: left;
+    text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
 }
 
 h5 > span {
     font: bold 30px scriptina;
+    text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
 }
 
 ul {
@@ -76,6 +79,69 @@ i.fa-instagram {
 
 .github-profile-pic:hover {
     opacity: 0;
+}
+
+.main-container {
+    padding : 0;
+    /*background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.4));*/
+    margin: 80px 15px 0px 15px;
+    /*height: calc(100% - 200px);*/
+    display: -webkit-box;
+}
+
+.left-container {
+    /*background: greenyellow;*/
+    width:350px;
+}
+
+.middle-container {
+    /*background: cornflowerblue;*/
+    -webkit-box-flex: 1;
+    height: 600px;
+}
+
+.right-container {
+    /*background: indianred;*/
+    width:300px;
+}
+
+.author-container {
+    /*background: cornflowerblue;*/
+    height: 350px;
+    text-align: center;
+}
+
+.hashtags-container {
+    background: indianred;
+    height: 50px;
+}
+
+.author-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+    padding: 5px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 6px 2px rgba(230,230,230,0.7);
+}
+
+.author-container h4 {
+    width:100%;
+    margin: 0;
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+    text-shadow: 0px 0px 6px rgba(240,240,240,0.7);
+}
+
+.follow-container {
+    border: 2px solid white;
+    display: -webkit-box;
+}
+
+.follow-container div {
+    width: 50%;
+    border: 2px solid yellow;
 }
 
 @font-face {

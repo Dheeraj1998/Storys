@@ -68,7 +68,7 @@
 		<h3 class="tagline">Write | Endorse | Like | Share | Chat</h3>
 
         <div class="new-story">
-            <a href="new_story.php">Create your first Story</a>
+            <a href="new_story.php" target="_blank" rel="tooltip">Create your first Story</a>
         </div>
 
 		<div class="moving-clouds" style=
