@@ -1,79 +1,159 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-image: url('paperkit2/assets/img/login-image.jpg');
-  background-size: cover;
+    background-image: url('paperkit2/assets/img/login-image.jpg');
+    background-size: cover;
 
 }
 
 .outer-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(230,230,230,0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+h5 {
+    color: #fff;
+    font-size: 24px;
+    margin: 10px;
+    padding: 0px;
+    position: relative;
+    float: left;
+    text-shadow: 0px 0px 4px rgba(230, 230, 230, 0.7);
+}
+
+h5 > span {
+    color: #fff;
+    font: bold 30px scriptina;
+    text-shadow: 0px 0px 4px rgba(230, 230, 230, 0.7);
+}
+
+ul {
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    padding: 0;
+    list-style-type: none;
+    float: right;
+}
+
+li {
+    margin: 10px;
+    display: inline-block;
+}
+
+li > a {
+    font-size: 25px;
+}
+
+li > a > i {
+    text-shadow: 0px 0px 6px #ccc;
+    transition: all 0.5s;
+}
+
+li > a:hover > i {
+    cursor: pointer;
+    text-shadow: 0px 0px 6px #fff;
+}
+
+i.fa-facebook-square {
+    color: #3b5998;
+}
+
+i.fa-twitter {
+    color: #55acee;
+}
+
+i.fa-instagram {
+    color: #e95950;
 }
 
 .inner-container {
-  position: absolute;
-  width: 30%;
-  text-align: center;
-  background-color: #fff;
-  top: 50%;
-  left:50%;
-  padding-bottom: 10px;
-  transform: translate(-50%,-50%);
-  box-sizing: content-box;
-  border-radius: 10px;
-  box-shadow: 0px 0px 6px 2px rgba(0,0,0,0.3);
+    position: absolute;
+    width: 30%;
+    text-align: center;
+    background-color: rgba(250,250,250,0.7);
+    top: 50%;
+    left: 50%;
+    padding-bottom: 10px;
+    padding-top: 7px;
+    transform: translate(-50%, -50%);
+    box-sizing: content-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.3);
 }
 
-input {
-  margin: 3%;
-}
-
-a {
-  text-decoration: none;
-  margin: 10%;
+td {
+    font-size: 12px;
+    color: #222;
+    text-shadow: 0px 0px 1px rgba(20,20,20,0.50);
 }
 
 .username, .password {
-  width: 94%;
-  margin: 15px 10px 0px 10px;
-  border-radius: 5px;
-  padding: 10px;
-  border: none;
-  background-color: #eef;
-  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
+    width: 94%;
+    margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #eef;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 .username:focus, .password:focus {
-  background-color: #fcfcff;
-  box-shadow: 0px 0px 3px 1px #39e;
+    background-color: #fcfcff;
+    box-shadow: 0px 0px 3px 1px #39e;
 }
 
 .login, .login:active {
-  width: 30%;
-  margin: 20px 10px 10px 10px;
-  border-radius: 5px;
-  padding: 8px;
-  border: none;
-  color: white;
-  font-size: 18px;
-  background-color: #3e9;
-  box-shadow: 0px 0px 3px 1px rgba(50,50,50,0.5);
-  transition: all 0.4s;
+    width: 30%;
+    margin: 10px 0px 5px 0px;
+    border-radius: 5px;
+    padding: 8px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    background-color: #3e9;
+    box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.5);
+    transition: all 0.4s;
 }
 
 .login:hover {
-  background-color: #fff;
-  cursor: pointer;
-  color: #3e9;
-  box-shadow: 0px 0px 3px 1px #3e9;
+    background-color: #fff;
+    cursor: pointer;
+    color: #3e9;
+    box-shadow: 0px 0px 3px 1px #3e9;
 }
 
-.register {
-  text-shadow: 0px 0px 3px 1px #3e9;
+a.register {
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+    color: blueviolet;
+    text-shadow: 0px 0px 1px #8A2BE2;
+    margin: 5px 0px 5px 0px;
+}
+
+a.register:hover {
+    color: orangered;
+    text-shadow: 0px 0px 1px orangered;
+}
+
+.register > span {
+    font-size: 20px;
+    font-family: scriptina;
+}
+
+@font-face {
+    font-family: 'scriptina';
+    src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
 }
