@@ -22,7 +22,7 @@ body {
     max-height: 999px;
     position: relative;
     width: 100%;
-    z-index: 1;
+    z-index: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,30 +104,27 @@ li > a:hover {
     opacity: 0;
 }
 
-.new-story a {
-    text-decoration: none;
-    color: #fff;
-}
-
 .new-story {
     padding: 7px 15px 7px 15px;
     border-radius: 20px;
     border: 2px solid white;
     position: absolute;
+    z-index: 1;
     bottom: 17%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
     font-size: 16px;
     text-shadow: 0px 0px 4px #fff;
+    text-decoration: none;
 }
 
-.new-story a:hover {
-    background-color: rgba(255,255,255,1);
-    cursor: pointer;
-    color: #fff;
-    font-size: 16px;
-    text-shadow: 0px 0px 4px #fff;
+
+.new-story:hover {
+    background-color: rgba(220,220,220,0.5);
+    text-decoration: none;
+    color: #000;
+    text-shadow: 0px 0px 4px #555;
 }
 
 @font-face {

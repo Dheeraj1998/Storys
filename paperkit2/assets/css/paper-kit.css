@@ -5997,7 +5997,7 @@ textarea.form-control {
 
 .moving-clouds {
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   bottom: 0;
   left: 0;
   margin: 0;

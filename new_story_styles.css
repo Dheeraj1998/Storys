@@ -144,6 +144,10 @@ i.fa-instagram {
     border: 2px solid yellow;
 }
 
+.story-container input, textarea{
+  color: black;
+}
+
 @font-face {
     font-family: 'scriptina';
     src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');

@@ -75,7 +75,50 @@
     </div>
 </div>
 
+<div class="story-container">
+  <form class="inner-container" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+
+    <input type="text" name="title" placeholder="Title"> <br>
+    <input type="text" name="tagline" placeholder="Tagline"> <br>
+    <textarea name="content" placeholder="Enter content here."></textarea> <br>
+
+    Select a category: <select name="category">
+      <option value="lifestyle">Lifestyle</option>
+      <option value="tech">Technology</option>
+      <option value="literature">Literature</option>
+      <option value="photography">Photography</option>
+      <option value="music">Music</option>
+    </select> <br>
+
+    <input type="submit" name="submit" value="Upload it!"> <br>
+  </form>
+</div>
 
 </body>
 
 </html>
+
+<?php
+  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $title = $_POST['title'];
+    $tagline = $_POST['tagline'];
+    $content = $_POST['content'];
+    $category = $_POST['category'];
+
+    $servername = "localhost";
+    $db_username = "root";
+    $db_password = "Dheeraj@1998";
+    $db_name = "Storys";
+
+    //Create connection
+    $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
+
+    $sql = "INSERT INTO PostDetails (Title, Tagline, Content, Category) VALUES ('" . $title . "', '" . $tagline . "', '" . $content . "', '" . $category . "');";
+
+    if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  }
+?>

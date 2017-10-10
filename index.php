@@ -61,19 +61,17 @@
 	</nav>
 
 
+
 	<div class="outer-container">
 		<h1 class="main-title">Storys</h1>
 
 
 		<h3 class="tagline">Write | Endorse | Like | Share | Chat</h3>
 
-        <div class="new-story">
-            <a href="new_story.php" target="_blank" rel="tooltip">Create your first Story</a>
-        </div>
 
-		<div class="moving-clouds" style=
-		"background-image: url('paperkit2/assets/img/clouds.png');">
-		</div>
+            <a class="new-story" href="new_story.php" rel="tooltip">Create your first Story</a>
+        
+
 	</div>
 </body>
 </html>
