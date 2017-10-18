@@ -70,7 +70,7 @@
                 <td><input class="name" type="text" name="name" placeholder="Name"></td>
             </tr>
             <tr>
-                <td>Email-Id</td>
+                <td>Email</td>
                 <td><input class="email" type="email" name="email" placeholder="Email"></td>
             </tr>
             <tr>
@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = hash('md4', $_POST['password']);
     $name = $_POST['name'];
+    $name = $_POST['email'];
 
     $servername = "localhost";
     $db_username = "root";
@@ -99,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
 
-    $sql = "INSERT INTO UserAccounts (Username, Password, Name) VALUES ('" . $username . "', '" . $password . "', '" . $name . "');";
+    $sql = "INSERT INTO UserAccounts (Username, Password, Name, Email) VALUES ('" . $username . "', '" . $password . "', '" . $name . "', '" . $email . "');";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: login.php");

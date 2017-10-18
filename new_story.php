@@ -104,6 +104,8 @@
     $tagline = $_POST['tagline'];
     $content = $_POST['content'];
     $category = $_POST['category'];
+    $post_date = date("Y-m-d");
+    $post_time = date("h:i:s");
 
     $servername = "localhost";
     $db_username = "root";
@@ -113,7 +115,7 @@
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
 
-    $sql = "INSERT INTO PostDetails (Title, Tagline, Content, Category) VALUES ('" . $title . "', '" . $tagline . "', '" . $content . "', '" . $category . "');";
+    $sql = "INSERT INTO PostDetails (Title, Tagline, Content, Category, Date, Time) VALUES ('" . $title . "', '" . $tagline . "', '" . $content . "', '" . $category . "', '" . $post_date . "', '" . $post_time . "');";
 
     if ($conn->query($sql) === TRUE) {
       echo "New record created successfully";

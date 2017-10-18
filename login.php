@@ -95,6 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) == 0) {
         echo "Fail";
     } else {
+        $cookie_value = $username;
+        setcookie('username', $cookie_value, time() + 10000, "/");
+
         header("Location: dashboard.php");
         die();
     }
