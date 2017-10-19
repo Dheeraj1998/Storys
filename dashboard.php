@@ -52,6 +52,7 @@
 								<div class = 'time-container'>" .$row["Time"]. "</div>
 		            <div class = 'content-container'>" . $row["Content"]. "</div>
 		            <div class = 'category-container'>" .$row["Category"]. "</div>
+								<div class = 'username-container'><a href = 'profiles/" . $row["Username"] . ".php'>" .$row["Username"]. "</a></div>
 								<div class = 'like-container'>
 									<div class = 'like-button' id = 'like-button-id" . $row["ID"] . "' onclick = 'likePost(" . $row["ID"] . ")'>";
 											$sql = "SELECT * FROM LikeDetails WHERE Username = '" . $username . "'";
@@ -78,7 +79,7 @@
 											}
 
 						echo "</div>
-									<div class = 'like-counter'>";
+									<div class = 'like-counter' id = 'like-counter-id" . $row["ID"] . "'>";
 										$sql = "SELECT * FROM LikeDetails WHERE ID = '" . $row["ID"] . "'";
 										$like_counter_result = mysqli_query($conn, $sql);
 
@@ -93,6 +94,25 @@
 
 										else {
 											// No message displayed
+										}
+
+						echo "</div>
+									<div class = 'comment-button' onclick = 'commentPost(" . $row["ID"] . ")'>Comment now!</div>
+									<div class = 'comment-counter' id = 'comment-counter-id" . $row["ID"] . "'>";
+										$sql = "SELECT * FROM CommentDetails WHERE ID = '" . $row["ID"] . "';";
+								    $comment_list = mysqli_query($conn, $sql);
+
+								    if ($comment_list->num_rows > 0) {
+											while($counter_row = $comment_list->fetch_assoc()) {
+												echo $counter_row["Username"];
+												echo " - ";
+												echo $counter_row["Content"];
+												echo "<br>";
+											}
+										}
+
+										else {
+								        // No message displayed
 										}
 
 						echo "</div>

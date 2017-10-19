@@ -24,8 +24,6 @@
 
 <body>
 
-
-
 <div class="outer-container">
     <nav>
 
@@ -90,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = hash('md4', $_POST['password']);
     $name = $_POST['name'];
-    $name = $_POST['email'];
+    $email = $_POST['email'];
 
     $servername = "localhost";
     $db_username = "root";
@@ -103,8 +101,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO UserAccounts (Username, Password, Name, Email) VALUES ('" . $username . "', '" . $password . "', '" . $name . "', '" . $email . "');";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: login.php");
         echo "New record created successfully";
+        $file_name = "profiles/" . $username . ".php";
+        $file_content = file_get_contents("profile.php");
+
+        if (!file_exists($file_name)) {
+          $handle = fopen($file_name, 'w+');
+          fwrite($handle, $file_content);
+          fclose($handle);
+        }
+
+        chmod($file_name, 0777);
+        header("Location: login.php");
         die();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
