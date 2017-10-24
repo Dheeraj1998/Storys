@@ -52,7 +52,7 @@
 								<div class = 'time-container'>" .$row["Time"]. "</div>
 		            <div class = 'content-container'>" . $row["Content"]. "</div>
 		            <div class = 'category-container'>" .$row["Category"]. "</div>
-								<div class = 'username-container'><a href = 'profiles/" . $row["Username"] . ".php'>" .$row["Username"]. "</a></div>
+								<div class = 'username-container'><a href = 'profile.php?username=" . $row["Username"] . "'>" .$row["Username"]. "</a></div>
 								<div class = 'like-container'>
 									<div class = 'like-button' id = 'like-button-id" . $row["ID"] . "' onclick = 'likePost(" . $row["ID"] . ")'>";
 											$sql = "SELECT * FROM LikeDetails WHERE Username = '" . $username . "'";

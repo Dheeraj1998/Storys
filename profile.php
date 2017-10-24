@@ -1,16 +1,19 @@
 <?php
-  $username = basename($_SERVER["REQUEST_URI"], ".php");
-
   $servername = "localhost";
   $db_username = "root";
   $db_password = "Dheeraj@1998";
   $db_name = "Storys";
+  $username = $_GET['username'];
 
   $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
   $sql = "SELECT * FROM UserAccounts WHERE Username = '" . $username . "';";
 
   $result = mysqli_query($conn, $sql);
   $row = $result->fetch_assoc();
+
+  if($result->num_rows == 0){
+    header("Location: error.php");
+  }
 
   $name = $row['Name'];
   $email = $row['Email'];

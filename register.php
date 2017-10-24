@@ -102,16 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
-        $file_name = "profiles/" . $username . ".php";
-        $file_content = file_get_contents("profile.php");
-
-        if (!file_exists($file_name)) {
-          $handle = fopen($file_name, 'w+');
-          fwrite($handle, $file_content);
-          fclose($handle);
-        }
-
-        chmod($file_name, 0777);
         header("Location: login.php");
         die();
     } else {
