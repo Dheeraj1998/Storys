@@ -4,7 +4,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = "";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -39,7 +39,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = "";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -77,7 +77,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = "";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];

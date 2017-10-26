@@ -68,7 +68,8 @@
                 <td colspan="2"><input class="login" type="submit" name="submit" value="Login"></td>
             </tr>
             <tr>
-                <td colspan="2"><a class="register" href="register.php">Not yet a part of <span>Storys</span>? Sign Up here.</a></td>
+                <td colspan="2"><a class="register" href="register.php">Not yet a part of <span>Storys</span>? Sign Up
+                        here.</a></td>
             </tr>
     </form>
 </div>
@@ -82,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = "";
     $db_name = "Storys";
 
     //Create connection
@@ -101,8 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: dashboard.php");
         die();
     }
-}
 
+}
 ?>
 
 </html>
