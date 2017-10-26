@@ -83,28 +83,30 @@
     $username = $_COOKIE['username'];
 
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
-    $sql = "INSERT INTO CommentDetails(ID, Username, Content) VALUES (" . $post_id . ", '" . $username . "', '" . $comment_content . "')";
 
-    if ($conn->query($sql) === TRUE) {
-      $sql = "SELECT * FROM CommentDetails WHERE ID = '" . $post_id . "';";
-      $comment_list = mysqli_query($conn, $sql);
+    if($comment_content != 'null'){
+      $sql = "INSERT INTO CommentDetails(ID, Username, Content) VALUES (" . $post_id . ", '" . $username . "', '" . $comment_content . "')";
 
-      if ($comment_list->num_rows > 0) {
-        while($counter_row = $comment_list->fetch_assoc()) {
-          echo $counter_row["Username"];
-          echo " - ";
-          echo $counter_row["Content"];
-          echo "<br>";
+      if ($conn->query($sql) === TRUE) {
+        $sql = "SELECT * FROM CommentDetails WHERE ID = '" . $post_id . "';";
+        $comment_list = mysqli_query($conn, $sql);
+
+        if ($comment_list->num_rows > 0) {
+          while($counter_row = $comment_list->fetch_assoc()) {
+            echo $counter_row["Username"];
+            echo " - ";
+            echo $counter_row["Content"];
+            echo "<br>";
+          }
         }
-      }
 
-      else {
-        // No message displayed
-      }
+        else {
+          // No message displayed
+        }
 
-    } else {
+      } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
+      }
     }
   }
-
- ?>
+?>

@@ -28,7 +28,7 @@ h5{
     text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
 }
 
-h5 > span {
+span{
     font: bold 30px scriptina;
     text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
 }
@@ -116,7 +116,7 @@ i.fa-instagram {
     height: 50px;
 }
 
-.author-container img {
+.author-container {
     width: 200px;
     height: 200px;
     border-radius: 50%;

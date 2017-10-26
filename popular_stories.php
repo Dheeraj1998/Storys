@@ -25,13 +25,27 @@
 	<link href = "paperkit2/assets/css/nucleo-icons.css" rel = "stylesheet">
 	<script src = "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<script src = "dashboard.js"></script>
+	<script src = "popular_stories.js"></script>
 
-	<title>Dashboard</title>
+	<title>Explore domains</title>
 </head>
 
 <body>
+	<div class = 'topic-container' onclick="changeTopic('tech')">#technology</div>
+	<div class = 'topic-container' onclick="changeTopic('lifestyle')">#lifestyle</div>
+	<div class = 'topic-container' onclick="changeTopic('music')">#music</div>
+	<div class = 'topic-container' onclick="changeTopic('photography')">#photography</div>
+	<div class = 'topic-container' onclick="changeTopic('literature')">#literature</div>
+
 	<div class="outer-container">
     <?php
+		error_reporting(0);
+		$category = $_GET['category'];
+
+		if($category == null){
+			$category = "tech";
+		}
+
     $servername = "localhost";
     $db_username = "root";
     $db_password = "Dheeraj@1998";
@@ -40,7 +54,7 @@
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
 
-		$sql = "SELECT * FROM PostDetails;";
+		$sql = "SELECT * FROM PostDetails WHERE Category = '" . $category . "';";
 		$result = mysqli_query($conn, $sql);
 
 		if ($result->num_rows > 0) {

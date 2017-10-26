@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="new_story_styles.css"/>
-    <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
+    <!-- <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet"> -->
 <!--    <link href="paperkit2/assets/css/demo.css" rel="stylesheet">-->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700'
           rel='stylesheet' type='text/css'>
