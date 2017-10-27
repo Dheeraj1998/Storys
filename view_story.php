@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-$username = $_COOKIE['username'];
-$name = "";
-if ($username == null) {
-    header("Location: login.php");
-}
-
-?>
-
 <html>
 <head>
     <link rel="stylesheet" type="text/css">
@@ -23,62 +14,9 @@ if ($username == null) {
     <link href="assets_folder/assets/img/favicon.ico" rel="icon" type="image/png">
     <link href="assets_folder/assets/css/nucleo-icons.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
     <script src="dashboard.js"></script>
 
-    <script>
-      function logoutUser(){
-        var user_status = confirm('Are you sure you want to logout?');
-
-        if (user_status == true) {
-          document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-          window.location = 'login.php';
-        }
-      }
-
-      function sharePost(element_id){
-        text = 'http://localhost/Dheeraj_Files/Storys/view_story.php?post_id=' + element_id;
-        var textArea = document.createElement("textarea");
-
-        // Place in top-left corner of screen regardless of scroll position.
-        textArea.style.position = 'fixed';
-        textArea.style.top = 0;
-        textArea.style.left = 0;
-
-        // Ensure it has a small width and height. Setting to 1px / 1em
-        // doesn't work as this gives a negative w/h on some browsers.
-        textArea.style.width = '2em';
-        textArea.style.height = '2em';
-
-        // We don't need padding, reducing the size if it does flash render.
-        textArea.style.padding = 0;
-
-        // Clean up any borders.
-        textArea.style.border = 'none';
-        textArea.style.outline = 'none';
-        textArea.style.boxShadow = 'none';
-
-        // Avoid flash of white box if rendered for any reason.
-        textArea.style.background = 'transparent';
-        textArea.value = text;
-
-        document.body.appendChild(textArea);
-        textArea.select();
-
-        try {
-          var successful = document.execCommand('copy');
-          var msg = successful ? 'successful' : 'unsuccessful';
-          console.log('Copying text command was ' + msg);
-        } catch (err) {
-          console.log('Oops, unable to copy');
-        }
-
-        document.body.removeChild(textArea);
-        alert('The link has been copied to your clipboard!');
-      }
-    </script>
-
-    <title>Dashboard</title>
+    <title>View Story</title>
 </head>
 
 <body>
@@ -91,40 +29,36 @@ $db_name = "Storys";
 //Create connection
 $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
 
-$sql = "SELECT * FROM UserAccounts WHERE username = '" . $username . "';";
-$result = mysqli_query($conn, $sql);
-
-if ($result->num_rows > 0) {
-    if ($row = $result->fetch_assoc()) {
-        $name = $row["Name"];
-    }
-}
 ?>
 
 <div class="outer-container">
     <nav>
 
-        <h5><span>Story</span><a href = 'profile.php?username=<?php echo $username?>'><?php echo $name; ?></a></h5>
-
-        <h4 class="logout" onclick="logoutUser()">Logout</h4>
+        <h5>Here is your <span>Story</span></h5>
     </nav>
 
     <section>
 
         <?php
-        $sql = "SELECT * FROM PostDetails;";
+        $post_id = $_GET['post_id'];
+
+        $sql = "SELECT * FROM PostDetails WHERE Id = $post_id;";
         $result = mysqli_query($conn, $sql);
+
+        if($result->num_rows == 0){
+          header("Location: error.php");
+        }
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $sql = "SELECT * FROM UserAccounts WHERE username = '" . $row["Username"] . "';";
-                $curr_result = mysqli_query($conn, $sql);
+              $sql = "SELECT * FROM UserAccounts WHERE username = '" . $row["Username"] . "';";
+              $curr_result = mysqli_query($conn, $sql);
 
-                if ($curr_result->num_rows > 0) {
-                    if ($curr_row = $curr_result->fetch_assoc()) {
-                        $name = $curr_row["Name"];
-                    }
-                }
+              if ($curr_result->num_rows > 0) {
+                  if ($curr_row = $curr_result->fetch_assoc()) {
+                      $name = $curr_row["Name"];
+                  }
+              }
 
                 echo "
                     <div class = 'post-container'>
@@ -158,36 +92,7 @@ if ($result->num_rows > 0) {
                             <td width='33.33%' class='like-btn-container'>
                                 <div class = 'like-button' id = 'like-button-id" . $row["ID"] . "' onclick = 'likePost(" . $row["ID"] . ")'>";
 
-                $sql = "SELECT * FROM LikeDetails WHERE Username = '" . $username . "'";
-                $user_like_result = mysqli_query($conn, $sql);
-                $found = false;
-
-                if ($user_like_result->num_rows > 0) {
-                    while ($like_row = $user_like_result->fetch_assoc()) {
-                        if ($row["ID"] == $like_row["ID"]) {
-                            $found = true;
-                            echo "<span class='unlike'>Unlike</span>";
-                            break;
-                        }
-                    }
-                } else {
-                    $found = true;
-                    echo "<span class='like'>Like</span>";
-                }
-
-                if ($found == false) {
-                    echo "<span class='like'>Like</span>";
-                }
-
-
-
-
-                echo "            </div>
-                            </td>
-                            <td width='33.33%' class='share-btn-container' onclick = 'sharePost(" . $row["ID"] . ")'>Share</td>
-                            <td width='33.33%' class='comment-btn-container'><div class = 'comment-button' onclick = 'commentPost(" . $row["ID"] . ")'>Comment</div></td>
-                        </tr>
-                        <tr>
+                echo    "<tr>
                             <td colspan='3' class='likes-container'>
                                 <div class = 'like-counter' id = 'like-counter-id" . $row["ID"] . "'>";
 
@@ -235,13 +140,11 @@ if ($result->num_rows > 0) {
 
             }
         } else {
-            echo "0 results";
+            echo "No results found.";
         }
 
         ?>
-        <a href = 'new_story.php'><div class = 'new-story-container' title="Add a new story!">+</div></a>
     </section>
 </div>
 </body>
-<textarea id="text_holder" style="display:none;">
 </html>
