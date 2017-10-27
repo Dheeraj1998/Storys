@@ -69,9 +69,7 @@
 		<h3 class="tagline">Write | Endorse | Like | Share | Chat</h3>
 
 
-            <a class="new-story" href="login.php" rel="tooltip">Create your first Story</a>
-        
-
+      <a class="new-story" href="login.php" rel="tooltip">Create your first Story</a>
 	</div>
 </body>
 </html>

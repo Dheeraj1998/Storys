@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link href="login_styles.css" rel="stylesheet" type="text/css">
     <!--    <link href="paperkit2/assets/css/bootstrap.min.css" rel="stylesheet"/>-->
-    <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
+    <!-- <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet"> -->
     <link href="paperkit2/assets/css/demo.css" rel="stylesheet">
     <!--     Fonts and icons     -->
     <link href="paperkit2/assets/img/apple-icon.png" rel="apple-touch-icon" sizes=
