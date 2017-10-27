@@ -107,7 +107,8 @@ if ($result->num_rows > 0) {
     <nav>
         <h5><span>Story</span><a href = 'profile.php?username=<?php echo $username?>'><?php echo $name; ?></a></h5>
         <h4 class = "logout" onclick="logoutUser()">Logout</h4>
-        <h4 class = "links"><a href="popular_stories.php">Explore more!</a></h4>
+        <h4 class = "links"><a href="popular_stories.php">Explore!</a></h4>
+        <h4 class = "links"><a href="search.php">Search here</a></h4>
     </nav>
 
     <section>

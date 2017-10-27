@@ -92,7 +92,7 @@ $username = $_COOKIE['username'];
 
 <body>
 <nav>
-    <a href='dashboard.php'><h5><span>Story</span></h5></a>
+    <h5><a href = 'dashboard.php'><span>Story</span></a><?php echo $name; ?></h5>
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-placement="bottom" href=
@@ -273,4 +273,3 @@ $username = $_COOKIE['username'];
 </div>
 </body>
 </html>
-
