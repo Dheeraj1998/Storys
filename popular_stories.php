@@ -14,15 +14,15 @@
 	<link rel="stylesheet" type="text/css">
 	<meta charset="utf-8">
 	<link href="dashboard_styles.css" rel="stylesheet" type="text/css">
-	<link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
-	<link href="paperkit2/assets/css/demo.css" rel="stylesheet">
+	<link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
+	<link href="assets_folder/assets/css/demo.css" rel="stylesheet">
 
 	<!--     Fonts and icons     -->
-	<link href="paperkit2/assets/img/apple-icon.png" rel="apple-touch-icon" sizes = "76x76">
+	<link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes = "76x76">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type = 'text/css'>
 	<link href = "http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-	<link href = "paperkit2/assets/img/favicon.ico" rel = "icon" type = "image/png">
-	<link href = "paperkit2/assets/css/nucleo-icons.css" rel = "stylesheet">
+	<link href = "assets_folder/assets/img/favicon.ico" rel = "icon" type = "image/png">
+	<link href = "assets_folder/assets/css/nucleo-icons.css" rel = "stylesheet">
 	<script src = "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<script src = "dashboard.js"></script>
 	<script src = "popular_stories.js"></script>
@@ -48,7 +48,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = file_get_contents('password.txt');
     $db_name = "Storys";
 
     //Create connection
@@ -73,11 +73,11 @@
 	          <table class='user-details'>
 	              <tr>
 	                  <td rowspan='2' width='10%' class='profile-pic-container'>
-	                      <img src='paperkit2/assets/img/faces/shantanu.jpg'>
+	                      <img src='assets_folder/assets/img/faces/shantanu.jpg'>
 	                  </td>
 	                  <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
 	                  <td rowspan='2' width='10%' class='settings-container'>
-	                      <img src='paperkit2/assets/img/icons/settings.png'>
+	                      <img src='assets_folder/assets/img/icons/settings.png'>
 	                  </td>
 	              </tr>
 	              <tr>

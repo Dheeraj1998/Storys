@@ -1,0 +1,55 @@
+/*!
+
+ =========================================================
+ * Paper Kit 2 - v2.0.1
+ =========================================================
+
+ * Product Page: http://www.creative-tim.com/product/paper-kit-2
+ * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT (https://github.com/timcreative/paper-kit/blob/master/LICENSE.md)
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
+@import "asset-sass/variables";
+@import "asset-sass/mixins";
+
+@import "asset-sass/typography";
+
+// Core CSS
+@import "asset-sass/misc";
+@import "asset-sass/buttons";
+@import "asset-sass/inputs";
+@import "asset-sass/progress-bars";
+@import "asset-sass/sliders";
+@import "asset-sass/alerts";
+@import "asset-sass/labels";
+@import "asset-sass/tooltips-and-popovers";
+@import "asset-sass/sections";
+@import "asset-sass/checkbox-radio";
+@import "asset-sass/navbars";
+@import "asset-sass/images";
+@import "asset-sass/cards";
+@import "asset-sass/footers";
+
+
+// Bootstrap Switch
+@import "asset-sass/bootstrap-switch";
+
+// Fancy Stuff
+@import "asset-sass/dropdown";
+//
+// icons
+@import "asset-sass/icons";
+//
+@import "asset-sass/tabs-navs-pagination";
+@import "asset-sass/collapse";
+@import "asset-sass/carousel";
+@import "asset-sass/modal";
+//
+@import "asset-sass/responsive";
+@import "asset-sass/plugins/datetimepicker";
+@import "asset-sass/social-buttons";
+@import "asset-sass/examples";

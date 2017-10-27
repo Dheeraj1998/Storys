@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('paperkit2/assets/img/fabio-mangione.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets_folder/assets/img/fabio-mangione.jpg');
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
@@ -150,5 +150,5 @@ i.fa-instagram {
 
 @font-face {
     font-family: 'scriptina';
-    src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
+    src: url('assets_folder/assets/fonts/scriptina.otf') format('opentype');
 }

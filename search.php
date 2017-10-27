@@ -6,15 +6,15 @@
 		<meta charset="utf-8">
 		<link href="search_styles.css" rel="stylesheet" type="text/css">
 		<link href="dashboard_styles.css" rel="stylesheet" type="text/css">
-		<link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
-		<link href="paperkit2/assets/css/demo.css" rel="stylesheet">
+		<link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
+		<link href="assets_folder/assets/css/demo.css" rel="stylesheet">
 
 		<!--     Fonts and icons     -->
-		<link href="paperkit2/assets/img/apple-icon.png" rel="apple-touch-icon" sizes = "76x76">
+		<link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes = "76x76">
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type = 'text/css'>
 		<link href = "http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-		<link href = "paperkit2/assets/img/favicon.ico" rel = "icon" type = "image/png">
-		<link href = "paperkit2/assets/css/nucleo-icons.css" rel = "stylesheet">
+		<link href = "assets_folder/assets/img/favicon.ico" rel = "icon" type = "image/png">
+		<link href = "assets_folder/assets/css/nucleo-icons.css" rel = "stylesheet">
 		<script src = "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 		<script src = "search.js"></script>
 		<script src= "dashboard.js"></script>

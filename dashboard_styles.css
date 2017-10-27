@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url('paperkit2/assets/img/joshua-stannard.jpg');
+    background-image: url('assets_folder/assets/img/joshua-stannard.jpg');
     background-size: cover;
     background-attachment: fixed;
 
@@ -215,5 +215,5 @@ span.unlike {
 
 @font-face {
     font-family: 'scriptina';
-    src: url('paperkit2/assets/fonts/scriptina.otf') format('opentype');
+    src: url('assets_folder/assets/fonts/scriptina.otf') format('opentype');
 }

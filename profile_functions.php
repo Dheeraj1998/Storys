@@ -5,7 +5,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = file_get_contents('password.txt');
     $db_name = "Storys";
 
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
@@ -26,7 +26,7 @@ if($_POST['func_type'] == 'unfollowUser'){
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = file_get_contents('password.txt');
     $db_name = "Storys";
 
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);

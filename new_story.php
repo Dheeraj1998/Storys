@@ -11,8 +11,8 @@
     <link href=
           "http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
           rel="stylesheet">
-    <link href="paperkit2/assets/img/favicon.ico" rel="icon" type="image/png">
-    <link href="paperkit2/assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="assets_folder/assets/img/favicon.ico" rel="icon" type="image/png">
+    <link href="assets_folder/assets/css/nucleo-icons.css" rel="stylesheet">
     <script src=
             "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js">
     </script>
@@ -57,7 +57,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = file_get_contents('password.txt');
     $db_name = "Storys";
 
     //Create connection

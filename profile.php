@@ -1,7 +1,7 @@
 <?php
    $servername = "localhost";
    $db_username = "root";
-   $db_password = "Dheeraj@1998";
+   $db_password = file_get_contents('password.txt');
    $db_name = "Storys";
    $username = $_GET['username'];
 
@@ -62,7 +62,7 @@
       <div class="main-container">
          <div class="left-container">
             <div class="author-container">
-               <img src="paperkit2/assets/img/faces/shantanu.jpg" > <br>
+               <img src="assets_folder/assets/img/faces/shantanu.jpg" > <br>
                <h4><?php echo $name; ?></h4>
                <h5><?php echo $email; ?></h5>
                <br> <br>
@@ -110,11 +110,11 @@
           <table class='user-details'>
               <tr>
                   <td rowspan='2' width='10%' class='profile-pic-container'>
-                      <img src='paperkit2/assets/img/faces/shantanu.jpg'>
+                      <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                   </td>
                   <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
                   <td rowspan='2' width='10%' class='settings-container'>
-                      <img src='paperkit2/assets/img/icons/settings.png'>
+                      <img src='assets_folder/assets/img/icons/settings.png'>
                   </td>
               </tr>
               <tr>
