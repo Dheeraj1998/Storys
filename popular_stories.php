@@ -77,7 +77,7 @@ if ($username == null) {
                         $name = $curr_row["Name"];
                     }
                 }
-
+                
                 $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
                 echo "
 	          <div class = 'post-container'>
@@ -87,9 +87,6 @@ if ($username == null) {
 	                      <img src='assets_folder/assets/img/faces/shantanu.jpg'>
 	                  </td>
 	                  <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
-	                  <td rowspan='2' width='10%' class='settings-container'>
-	                      <img src='assets_folder/assets/img/icons/settings.png'>
-	                  </td>
 	              </tr>
 	              <tr>
 	                  <td width='13%' class='time-container'>" . $row["Time"] . " | </td>
@@ -189,7 +186,7 @@ if ($username == null) {
 	      ";
             }
         } else {
-            echo "<span class='none' style='font-family: scriptina'>Sorry, No results found!!!</span>";
+            echo "<span class='none' style='font-family: scriptina'>Sorry, no results found!</span>";
         }
 
         ?>

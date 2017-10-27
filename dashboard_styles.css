@@ -52,11 +52,22 @@ ul {
     float: right;
 }
 
+h4.links {
+    font-size: 20px;
+    position: relative;
+    float: right;
+    padding-right: 30px;
+}
+
 h4.logout {
     font-size: 20px;
     position: relative;
     float: right;
     padding-right: 15px;
+}
+
+h4.logout:hover {
+    cursor: pointer;
 }
 
 section {
@@ -236,6 +247,10 @@ span.unlike:hover {
 }
 
 .logout:hover {
+  cursor: pointer;
+}
+
+.links:hover {
   cursor: pointer;
 }
 

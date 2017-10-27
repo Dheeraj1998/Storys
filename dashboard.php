@@ -16,6 +16,7 @@ if ($username == null) {
     <link href="dashboard_styles.css" rel="stylesheet" type="text/css">
     <link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
     <link href="assets_folder/assets/css/demo.css" rel="stylesheet">
+    <link href="popular_stories_styles.css" rel="stylesheet">
 
     <link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes="76x76">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
@@ -104,10 +105,9 @@ if ($result->num_rows > 0) {
 
 <div class="outer-container">
     <nav>
-
         <h5><span>Story</span><a href = 'profile.php?username=<?php echo $username?>'><?php echo $name; ?></a></h5>
-
-        <h4 class="logout" onclick="logoutUser()">Logout</h4>
+        <h4 class = "logout" onclick="logoutUser()">Logout</h4>
+        <h4 class = "links"><a href="popular_stories.php">Explore more!</a></h4>
     </nav>
 
     <section>
@@ -115,9 +115,17 @@ if ($result->num_rows > 0) {
         <?php
         $sql = "SELECT * FROM PostDetails;";
         $result = mysqli_query($conn, $sql);
+        $check_bool = false;
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $sql = "SELECT * FROM FollowingDetails WHERE Follower = '" . $username . "' AND Leader = '" . $row['Username'] . "';";
+                $follow_result = mysqli_query($conn, $sql);
+
+                if($follow_result->num_rows == 0){
+                  continue;
+                }
+
                 $sql = "SELECT * FROM UserAccounts WHERE username = '" . $row["Username"] . "';";
                 $curr_result = mysqli_query($conn, $sql);
 
@@ -126,6 +134,8 @@ if ($result->num_rows > 0) {
                         $name = $curr_row["Name"];
                     }
                 }
+                $check_bool = true;
+
                 $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
 
                 echo "
@@ -136,9 +146,6 @@ if ($result->num_rows > 0) {
                                 <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                             </td>
                             <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> $ " . $row["Username"] . "</a></td>
-                            <td rowspan='2' width='10%' class='settings-container'>
-                                <img src='assets_folder/assets/img/icons/settings.png'>
-                            </td>
                         </tr>
                         <tr>
                             <td width='13%' class='time-container'>" . $row["Time"] . "</td>
@@ -238,7 +245,12 @@ if ($result->num_rows > 0) {
 
             }
         } else {
-            echo "0 results";
+            echo "<span class='none' style='font-family: scriptina'>Sorry, No results found!</span>";
+            $check_bool = true;
+        }
+
+        if($check_bool == false){
+          echo "<span class='none' style='font-family: scriptina'>Sorry, No results found!</span>";
         }
 
         ?>
