@@ -34,8 +34,6 @@ if ($username == null) {
                 document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                 window.location = 'login.php';
             }
-        }
-<<<<<<< HEAD
       }
 
       function sharePost(element_id){
@@ -78,8 +76,7 @@ if ($username == null) {
         document.body.removeChild(textArea);
         alert('The link has been copied to your clipboard!');
       }
-=======
->>>>>>> 29d98306d1cd1cd195150724e00d7302495d58de
+
     </script>
 
     <title>Dashboard</title>
@@ -129,11 +126,8 @@ if ($result->num_rows > 0) {
                         $name = $curr_row["Name"];
                     }
                 }
-
-<<<<<<< HEAD
-=======
                 $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
->>>>>>> 29d98306d1cd1cd195150724e00d7302495d58de
+
                 echo "
                     <div class = 'post-container'>
                     <table class='user-details'>
@@ -141,14 +135,10 @@ if ($result->num_rows > 0) {
                             <td rowspan='2' width='10%' class='profile-pic-container'>
                                 <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                             </td>
-<<<<<<< HEAD
-                            <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
-=======
                             <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> $ " . $row["Username"] . "</a></td>
                             <td rowspan='2' width='10%' class='settings-container'>
                                 <img src='assets_folder/assets/img/icons/settings.png'>
                             </td>
->>>>>>> 29d98306d1cd1cd195150724e00d7302495d58de
                         </tr>
                         <tr>
                             <td width='13%' class='time-container'>" . $row["Time"] . "</td>
@@ -194,9 +184,6 @@ if ($result->num_rows > 0) {
                 if ($found == false) {
                     echo "<span class='like'>Like</span>";
                 }
-
-
-
 
                 echo "            </div>
                             </td>
