@@ -1,7 +1,7 @@
 <?php
   $servername = "localhost";
   $db_username = "root";
-  $db_password = "Dheeraj@1998";
+  $db_password = "";
   $db_name = "Storys";
 
   $search_text = $_POST['search_text'];

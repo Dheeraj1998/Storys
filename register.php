@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "Dheeraj@1998";
+    $db_password = "";
     $db_name = "Storys";
 
     //Create connection
