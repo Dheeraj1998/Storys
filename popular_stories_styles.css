@@ -1,0 +1,58 @@
+* {
+    margin : 0px;
+    padding : 0px;
+}
+
+.posts {
+    margin-top: 120px;
+}
+
+span.none {
+    color: #fff;
+    font-size: 80px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.topic-container {
+    color:white;
+}
+
+nav {
+
+}
+
+nav ul {
+    font-size: 0;
+    float: left;
+    margin-left: 10px;
+}
+
+nav ul li {
+    display: inline-block;
+    background-color: red;
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 5px;
+    border-top-right-radius: 8px;
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0px 2px 3px 2px #c00;
+    transition: all 0.3s;
+}
+
+nav ul li:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #d00;
+    font-size: large;
+    background-color: white;
+    box-shadow: 0px -2px 3px 2px #c00;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: 'scriptina';
+    src: url('assets_folder/assets/fonts/scriptina.otf') format('opentype');
+}
