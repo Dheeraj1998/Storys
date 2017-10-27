@@ -78,7 +78,7 @@ if ($username == null) {
                     }
                 }
 
-                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
+                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 15) . ".jpg";
                 echo "
 	          <div class = 'post-container'>
 	          <table class='user-details'>
