@@ -17,13 +17,13 @@ if ($username == null) {
     <link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
     <link href="assets_folder/assets/css/demo.css" rel="stylesheet">
 
-    <!--     Fonts and icons     -->
     <link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes="76x76">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets_folder/assets/img/favicon.ico" rel="icon" type="image/png">
     <link href="assets_folder/assets/css/nucleo-icons.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
     <script src="dashboard.js"></script>
 
     <script>
@@ -34,7 +34,49 @@ if ($username == null) {
                 document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                 window.location = 'login.php';
             }
+      }
+
+      function sharePost(element_id){
+        text = 'http://localhost/Dheeraj_Files/Storys/view_story.php?post_id=' + element_id;
+        var textArea = document.createElement("textarea");
+
+        // Place in top-left corner of screen regardless of scroll position.
+        textArea.style.position = 'fixed';
+        textArea.style.top = 0;
+        textArea.style.left = 0;
+
+        // Ensure it has a small width and height. Setting to 1px / 1em
+        // doesn't work as this gives a negative w/h on some browsers.
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+
+        // We don't need padding, reducing the size if it does flash render.
+        textArea.style.padding = 0;
+
+        // Clean up any borders.
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+
+        // Avoid flash of white box if rendered for any reason.
+        textArea.style.background = 'transparent';
+        textArea.value = text;
+
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+        } catch (err) {
+          console.log('Oops, unable to copy');
         }
+
+        document.body.removeChild(textArea);
+        alert('The link has been copied to your clipboard!');
+      }
+
     </script>
 
     <title>Dashboard</title>
@@ -63,7 +105,7 @@ if ($result->num_rows > 0) {
 <div class="outer-container">
     <nav>
 
-        <h5><span>Story</span><?php echo $name; ?></h5>
+        <h5><span>Story</span><a href = 'profile.php?username=<?php echo $username?>'><?php echo $name; ?></a></h5>
 
         <h4 class="logout" onclick="logoutUser()">Logout</h4>
     </nav>
@@ -148,7 +190,7 @@ if ($result->num_rows > 0) {
 
                 echo "            </div>
                             </td>
-                            <td width='33.33%' class='share-btn-container'>Share</td>
+                            <td width='33.33%' class='share-btn-container' onclick = 'sharePost(" . $row["ID"] . ")'>Share</td>
                             <td width='33.33%' class='comment-btn-container'><div class = 'comment-button' onclick = 'commentPost(" . $row["ID"] . ")'>Comment</div></td>
                         </tr>
                         <tr>
@@ -203,7 +245,9 @@ if ($result->num_rows > 0) {
         }
 
         ?>
+        <a href = 'new_story.php'><div class = 'new-story-container' title="Add a new story!">+</div></a>
     </section>
 </div>
 </body>
+<textarea id="text_holder" style="display:none;">
 </html>
