@@ -134,12 +134,7 @@ if ($result->num_rows > 0) {
                         $name = $curr_row["Name"];
                     }
                 }
-<<<<<<< HEAD
                 $check_bool = true;
-
-                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
-=======
->>>>>>> 362c603d0874048b40debc68004cca0ec182143b
 
                 $url = "assets_folder/assets/img/scenery" . mt_rand(1, 15) . ".jpg";
                 echo "
