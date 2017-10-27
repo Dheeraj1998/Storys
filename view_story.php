@@ -59,6 +59,7 @@ $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
                       $name = $curr_row["Name"];
                   }
               }
+                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 15) . ".jpg";
 
                 echo "
                     <div class = 'post-container'>
@@ -84,7 +85,8 @@ $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
                             <td class='tagline-container'> --> " . $row["Tagline"] . "</td>
                         </tr>
                         <tr>
-                            <td colspan='2' class='content-container'>" . nl2br($row["Content"]) . "</td>
+                             <td colspan='2' class='content-container' style=" . "\"background-image: url('" . $url . "');\">"
+                    . nl2br($row["Content"]) . "</td>
                         </tr>
                     </table>
                     <table>
