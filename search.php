@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css">
 		<meta charset="utf-8">
 		<link href="search_styles.css" rel="stylesheet" type="text/css">
+		<link href="dashboard_styles.css" rel="stylesheet" type="text/css">
 		<link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet">
 		<link href="paperkit2/assets/css/demo.css" rel="stylesheet">
 
@@ -16,6 +17,7 @@
 		<link href = "paperkit2/assets/css/nucleo-icons.css" rel = "stylesheet">
 		<script src = "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 		<script src = "search.js"></script>
+		<script src= "dashboard.js"></script>
 
 		<title>Search</title>
 	</head>
@@ -25,7 +27,6 @@
 			<div class="search-container">
 				<input id="search-text" type="text" onkeyup="startSearch()">
 			</div>
-
 			<div id = "search-result" class="search-result-container">
 
 			</div>

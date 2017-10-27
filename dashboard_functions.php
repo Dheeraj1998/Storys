@@ -4,7 +4,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "";
+    $db_password = "Dheeraj@1998";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -13,7 +13,7 @@
     $sql = "INSERT INTO LikeDetails(ID, Username) VALUES (" . $post_id . ", '" . $username . "')";
 
     if ($conn->query($sql) === TRUE) {
-      echo "Unlike||";
+      echo "<span class='unlike'>Unlike</span>||";
 
       $sql = "SELECT * FROM LikeDetails WHERE ID = '" . $post_id . "'";
       $like_counter_result = mysqli_query($conn, $sql);
@@ -39,7 +39,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "";
+    $db_password = "Dheeraj@1998";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -48,7 +48,7 @@
     $sql = "DELETE FROM LikeDetails WHERE ID = " . $post_id . " AND Username = '" . $username . "'";
 
     if ($conn->query($sql) === TRUE) {
-      echo "Like||";
+      echo "<span class='like'>Like</span>||";
 
       $sql = "SELECT * FROM LikeDetails WHERE ID = '" . $post_id . "'";
       $like_counter_result = mysqli_query($conn, $sql);
@@ -77,7 +77,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "";
+    $db_password = "Dheeraj@1998";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -93,8 +93,8 @@
 
         if ($comment_list->num_rows > 0) {
           while($counter_row = $comment_list->fetch_assoc()) {
-            echo $counter_row["Username"];
-            echo " - ";
+            echo "<a href = 'profile.php?username=" . $counter_row["Username"] . "' class='username-container'> " . $counter_row["Username"] . "</a>";
+            echo "<span> says </span>";
             echo $counter_row["Content"];
             echo "<br>";
           }

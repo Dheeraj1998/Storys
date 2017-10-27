@@ -177,12 +177,14 @@ span.like {
     color: #0d7;
     font-size: 16px;
     font-weight: bold;
+    text-shadow: 0px 0px 1px rgba(0,200,130,0.7);
 }
 
 span.unlike {
     color: #d33;
     font-size: 16px;
     font-weight: bold;
+    text-shadow: 0px 0px 1px rgba(200,30,30,0.7);
 }
 
 .share-btn-container {
@@ -205,6 +207,10 @@ span.unlike {
 
 .comment-button:hover {
     text-shadow: 0px 0px 1px rgba(200,60,10,0.7);
+}
+
+.logout:hover {
+  cursor: pointer;
 }
 
 @font-face {

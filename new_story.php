@@ -57,7 +57,7 @@
 
     $servername = "localhost";
     $db_username = "root";
-    $db_password = "";
+    $db_password = "Dheeraj@1998";
     $db_name = "Storys";
 
     //Create connection

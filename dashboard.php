@@ -26,6 +26,17 @@ if ($username == null) {
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="dashboard.js"></script>
 
+    <script>
+      function logoutUser(){
+        var user_status = confirm('Are you sure you want to logout?');
+
+        if (user_status == true) {
+          document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          window.location = 'login.php';
+        }
+      }
+    </script>
+
     <title>Dashboard</title>
 </head>
 
@@ -33,7 +44,7 @@ if ($username == null) {
 <?php
 $servername = "localhost";
 $db_username = "root";
-$db_password = "";
+$db_password = "Dheeraj@1998";
 $db_name = "Storys";
 
 //Create connection
@@ -54,7 +65,7 @@ if ($result->num_rows > 0) {
 
         <h5><span>Story</span><?php echo $name; ?></h5>
 
-        <h4 class="logout">Logout</h4>
+        <h4 class="logout" onclick="logoutUser()">Logout</h4>
     </nav>
 
     <section>
@@ -82,13 +93,13 @@ if ($result->num_rows > 0) {
                             <td rowspan='2' width='10%' class='profile-pic-container'>
                                 <img src='paperkit2/assets/img/faces/shantanu.jpg'>
                             </td>
-                            <td colspan='2' class='name-container'>$name <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'>$ " . $row["Username"] . "</a></td>
+                            <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
                             <td rowspan='2' width='10%' class='settings-container'>
                                 <img src='paperkit2/assets/img/icons/settings.png'>
                             </td>
                         </tr>
                         <tr>
-                            <td width='13%' class='time-container'>" . $row["Time"] . " |</td>
+                            <td width='13%' class='time-container'>" . $row["Time"] . " | </td>
                             <td width='*' class='date-container'>" . $row["Date"] . "</td>
                         </tr>
 
@@ -118,17 +129,17 @@ if ($result->num_rows > 0) {
                     while ($like_row = $user_like_result->fetch_assoc()) {
                         if ($row["ID"] == $like_row["ID"]) {
                             $found = true;
-                            echo "<span class='unlike' style='text-shadow: 0px 0px 1px rgba(200,30,30,0.7);'>Unlike</span>";
+                            echo "<span class='unlike'>Unlike</span>";
                             break;
                         }
                     }
                 } else {
                     $found = true;
-                    echo "<span class='like' style='text-shadow: 0px 0px 1px rgba(0,200,130,0.7);'>Like</span>";
+                    echo "<span class='like'>Like</span>";
                 }
 
                 if ($found == false) {
-                    echo "<span class='like' style='text-shadow: 0px 0px 1px rgba(0,200,130,0.7);'>Like</span>";
+                    echo "<span class='like'>Like</span>";
                 }
 
 
@@ -169,7 +180,7 @@ if ($result->num_rows > 0) {
 
                 if ($comment_list->num_rows > 0) {
                     while ($counter_row = $comment_list->fetch_assoc()) {
-                        echo "<a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'>$ " . $counter_row["Username"] . "</a>";
+                        echo "<a href = 'profile.php?username=" . $counter_row["Username"] . "' class='username-container'> " . $counter_row["Username"] . "</a>";
                         echo "<span> says </span>";
                         echo $counter_row["Content"];
                         echo "<br>";
