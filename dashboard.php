@@ -27,13 +27,15 @@ if ($username == null) {
     <script src="dashboard.js"></script>
 
     <script>
-      function logoutUser(){
-        var user_status = confirm('Are you sure you want to logout?');
+        function logoutUser() {
+            var user_status = confirm('Are you sure you want to logout?');
 
-        if (user_status == true) {
-          document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-          window.location = 'login.php';
+            if (user_status == true) {
+                document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                window.location = 'login.php';
+            }
         }
+<<<<<<< HEAD
       }
 
       function sharePost(element_id){
@@ -76,6 +78,8 @@ if ($username == null) {
         document.body.removeChild(textArea);
         alert('The link has been copied to your clipboard!');
       }
+=======
+>>>>>>> 29d98306d1cd1cd195150724e00d7302495d58de
     </script>
 
     <title>Dashboard</title>
@@ -126,6 +130,10 @@ if ($result->num_rows > 0) {
                     }
                 }
 
+<<<<<<< HEAD
+=======
+                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
+>>>>>>> 29d98306d1cd1cd195150724e00d7302495d58de
                 echo "
                     <div class = 'post-container'>
                     <table class='user-details'>
@@ -133,11 +141,18 @@ if ($result->num_rows > 0) {
                             <td rowspan='2' width='10%' class='profile-pic-container'>
                                 <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                             </td>
+<<<<<<< HEAD
                             <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
+=======
+                            <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> $ " . $row["Username"] . "</a></td>
+                            <td rowspan='2' width='10%' class='settings-container'>
+                                <img src='assets_folder/assets/img/icons/settings.png'>
+                            </td>
+>>>>>>> 29d98306d1cd1cd195150724e00d7302495d58de
                         </tr>
                         <tr>
-                            <td width='13%' class='time-container'>" . $row["Time"] . " | </td>
-                            <td width='*' class='date-container'>" . $row["Date"] . "</td>
+                            <td width='13%' class='time-container'>" . $row["Time"] . "</td>
+                            <td width='*' class='date-container'> |" . $row["Date"] . "</td>
                         </tr>
 
                     </tableclass>
@@ -150,7 +165,8 @@ if ($result->num_rows > 0) {
                             <td class='tagline-container'> --> " . $row["Tagline"] . "</td>
                         </tr>
                         <tr>
-                            <td colspan='2' class='content-container'>" . nl2br($row["Content"]) . "</td>
+                            <td colspan='2' class='content-container' style="."\"background-image: url('" . $url. "');\">"
+                . nl2br($row["Content"]) . "</td>
                         </tr>
                     </table>
                     <table>
@@ -196,7 +212,7 @@ if ($result->num_rows > 0) {
 
                 if ($like_counter_result->num_rows > 0) {
                     while ($counter_row = $like_counter_result->fetch_assoc()) {
-                        echo $counter_row["Username"];
+                        echo "<span>" . $counter_row["Username"] . "</span>";
                         echo " ";
                     }
 
