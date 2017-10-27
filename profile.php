@@ -28,7 +28,7 @@ $username = $_COOKIE['username'];
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="dashboard_styles.css"/>
     <link rel="stylesheet" type="text/css" href="profile_styles.css"/>
-    <link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
+    <link href="assets_folder/assets/css/main.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?fa  mily=Montserrat:400,300,700'
           rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"

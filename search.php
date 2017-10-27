@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<link href="search_styles.css" rel="stylesheet" type="text/css">
 		<link href="dashboard_styles.css" rel="stylesheet" type="text/css">
-		<link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
+		<link href="assets_folder/assets/css/main.css" rel="stylesheet">
 		<link href="assets_folder/assets/css/demo.css" rel="stylesheet">
 
 		<!--     Fonts and icons     -->

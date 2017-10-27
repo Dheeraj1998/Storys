@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link href="login_styles.css" rel="stylesheet" type="text/css">
-    <link href="assets_folder/assets/css/paper-kit.css" rel="stylesheet">
+    <link href="assets_folder/assets/css/main.css" rel="stylesheet">
 
     <!--     Fonts and icons     -->
     <link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes=
