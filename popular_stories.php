@@ -78,6 +78,7 @@ if ($username == null) {
                     }
                 }
 
+                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
                 echo "
 	          <div class = 'post-container'>
 	          <table class='user-details'>
@@ -105,7 +106,8 @@ if ($username == null) {
 	                  <td class='tagline-container'> --> " . $row["Tagline"] . "</td>
 	              </tr>
 	              <tr>
-	                  <td colspan='2' class='content-container'>" . nl2br($row["Content"]) . "</td>
+	                  <td colspan='2' class='content-container' style="."\"background-image: url('" . $url. "');\">"
+                    . nl2br($row["Content"]) . "</td>
 	              </tr>
 	          </table>
 	          <table>
