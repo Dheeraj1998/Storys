@@ -1,5 +1,4 @@
 * {
-    color: white;
     margin: 0px;
     padding: 0px;
 }
@@ -25,10 +24,10 @@ h5{
     padding: 0px;
     position: relative;
     float: left;
-    text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
+    text-shadow: 0px 0px 4px rgba(221, 67, 166, 0.7);
 }
 
-span{
+nav a span{
     font: bold 30px scriptina;
     text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
 }
@@ -90,29 +89,31 @@ i.fa-instagram {
 }
 
 .left-container {
-    /*background: greenyellow;*/
     width:350px;
+    position: fixed;
 }
 
 .middle-container {
     /*background: cornflowerblue;*/
     -webkit-box-flex: 1;
     height: 600px;
+    margin-left: 350px;
 }
 
 .right-container {
     /*background: indianred;*/
-    width:300px;
+    width:0px;
 }
 
 .author-container {
-    /*background: cornflowerblue;*/
     height: 350px;
     text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
 }
 
 .hashtags-container {
-    background: indianred;
     height: 50px;
 }
 
@@ -122,32 +123,78 @@ i.fa-instagram {
     border-radius: 50%;
     border: 3px solid white;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 50px;
     box-shadow: 0px 0px 6px 2px rgba(230,230,230,0.7);
 }
 
+.author-container img {
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+}
 .author-container h4 {
     width:100%;
-    margin: 0;
+    color: white;
     text-align: center;
-    margin: 10px 0px 0px 0px;
+    margin: 40px 0px 0px 0px;
     text-shadow: 0px 0px 6px rgba(240,240,240,0.7);
 }
 
-.follow-container {
-    border: 2px solid white;
-    display: -webkit-box;
+.author-container h5 {
+    color: #c33f90;
 }
 
-.follow-container div {
+.follow-container {
+    margin-top: 20px;
+}
+
+div.following {
     width: 50%;
-    border: 2px solid yellow;
+    background: #eef;
+    box-shadow: 0px 0px 6px 1px rgba(238, 238, 255, 0.8);
+    color: #2aabd2;
+    font-size: 14px;
+    font-weight: bold;
+    padding:8px;
+    left:50%;
+    border-radius: 5px;
+    position: relative;
+    transform: translate(-50%,0);
+    transition: all 0.3s;
+}
+
+div.following:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 2px #2aabd2;
+}
+
+div.follow {
+    width: 50%;
+    background: rgba(42, 171, 210, 1);
+    box-shadow: 0px 0px 6px 1px rgba(42, 171, 210, 0.8);
+    color: rgba(238, 238, 255, 1);
+    font-size: 14px;
+    font-weight: bold;
+    padding:8px;
+    left:50%;
+    border-radius: 5px;
+    position: relative;
+    transform: translate(-50%,0);
+    transition: all 0.3s;
+}
+
+div.follow:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 2px rgba(238, 238, 255, 1);
 }
 
 .story-container input, textarea{
   color: black;
 }
 
+.post-container {
+    width:80%;
+}
 @font-face {
     font-family: 'scriptina';
     src: url('assets_folder/assets/fonts/scriptina.otf') format('opentype');

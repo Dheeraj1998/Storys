@@ -77,8 +77,13 @@ if ($username == null) {
                         $name = $curr_row["Name"];
                     }
                 }
+<<<<<<< HEAD
                 
                 $url = "assets_folder/assets/img/scenery" . mt_rand(1, 6) . ".jpg";
+=======
+
+                $url = "assets_folder/assets/img/scenery" . mt_rand(1, 15) . ".jpg";
+>>>>>>> 362c603d0874048b40debc68004cca0ec182143b
                 echo "
 	          <div class = 'post-container'>
 	          <table class='user-details'>

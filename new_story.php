@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="new_story_styles.css"/>
     <!-- <link href="paperkit2/assets/css/paper-kit.css" rel="stylesheet"> -->
-<!--    <link href="paperkit2/assets/css/demo.css" rel="stylesheet">-->
+    <!--    <link href="paperkit2/assets/css/demo.css" rel="stylesheet">-->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700'
           rel='stylesheet' type='text/css'>
     <link href=
@@ -20,24 +20,45 @@
 </head>
 
 <body>
+<nav>
+    <a href='dashboard.php'><h5><span>Story</span></h5></a>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-placement="bottom" href=
+            "https://twitter.com/shantanu0323" rel="tooltip" target="_blank" title=
+               "Follow us on Twitter"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-placement="bottom" href=
+            "https://www.facebook.com/shantanu.pramanik1" rel="tooltip" target="_blank"
+               title="Like us on Facebook"><i class="fa fa-facebook-square"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-placement="bottom" href=
+            "https://www.instagram.com/shantanu0323" rel="tooltip" target="_blank"
+               title="Follow us on Instagram"><i class="fa fa-instagram"></i></a>
+        </li>
+    </ul>
+</nav>
+<br>
 
 <div class="story-container">
-  <form class="inner-container" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+    <form class="inner-container" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-    <input type="text" name="title" placeholder="Title"> <br>
-    <input type="text" name="tagline" placeholder="Tagline"> <br>
-    <textarea name="content" placeholder="Enter content here."></textarea> <br>
+        <input class="title-container" type="text" name="title" placeholder="Title"> <br>
+        <input class="tagline-container" type="text" name="tagline" placeholder="Tagline"> <br>
+        <textarea name="content" placeholder="Enter content here."></textarea> <br>
 
-    Select a category: <select name="category">
-      <option value="lifestyle">Lifestyle</option>
-      <option value="tech">Technology</option>
-      <option value="literature">Literature</option>
-      <option value="photography">Photography</option>
-      <option value="music">Music</option>
-    </select> <br>
+        Category : <select name="category">
+            <option value="lifestyle">Lifestyle</option>
+            <option value="tech">Technology</option>
+            <option value="literature">Literature</option>
+            <option value="photography">Photography</option>
+            <option value="music">Music</option>
+        </select> <br>
 
-    <input type="submit" name="submit" value="Upload it!"> <br>
-  </form>
+        <input class="bLogin" type="submit" name="submit" value="Upload it!"> <br>
+    </form>
 </div>
 
 </body>
@@ -45,7 +66,7 @@
 </html>
 
 <?php
-  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $tagline = $_POST['tagline'];
     $content = $_POST['content'];
@@ -66,9 +87,10 @@
     $sql = "INSERT INTO PostDetails (Username, Title, Tagline, Content, Category, Date, Time) VALUES ('" . $username . "', '" . $title . "', '" . $tagline . "', '" . $content . "', '" . $category . "', '" . $post_date . "', '" . $post_time . "');";
 
     if ($conn->query($sql) === TRUE) {
-      echo "New record created successfully";
+//        echo "New record created successfully";
+        header("Location: dashboard.php");
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-  }
+}
 ?>
