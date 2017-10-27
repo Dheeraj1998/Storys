@@ -212,7 +212,7 @@ $username = $_COOKIE['username'];
 
                     echo "            </div>
                   </td>
-                  <td width='33.33%' class='share-btn-container'>Share</td>
+                  <td width='33.33%' class='share-btn-container' onclick = 'sharePost(" . $row["ID"] . ")'>Share</td>
                   <td width='33.33%' class='comment-btn-container'><div class = 'comment-button' onclick = 'commentPost(" . $row["ID"] . ")'>Comment</div></td>
               </tr>
               <tr>

@@ -33,7 +33,7 @@
 		"assets_folder/assets/img/faces/dheeraj.jpg"></a> <span class=
 		"blank-space"></span>Dheeraj & <a href="https://github.com/shantanu0323"
 		target="_blank"><img src="assets_folder/assets/img/icon-github.png"> <img class=
-		"github-profile-pic" src="assets_folder/assets/img/faces/shantanu.jpg"></a>
+		"github-profile-pic" src="assets_folder/assets/img/shantanu.jpg"></a>
 		<span class="blank-space"></span>Shantanu</h5>
 
 
