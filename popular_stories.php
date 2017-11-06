@@ -90,6 +90,7 @@ if ($username == null) {
 <div class="outer-container">
 
     <nav>
+        <a href='dashboard.php'><h5><span>Story</span></h5></a>
         <ul>
             <li class='topic-container' onclick="changeTopic('tech')">#technology</li>
             <li class='topic-container' onclick="changeTopic('lifestyle')">#lifestyle</li>
