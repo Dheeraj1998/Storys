@@ -74,6 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $post_date = date("Y-m-d");
     $post_time = date("h:i:s");
 
+    $title = str_replace("'", "''", $title);
+    $tagline = str_replace("'", "''", $tagline);
+    $content = str_replace("'", "''", $content);
+
     $username = $_COOKIE['username'];
 
     $servername = "localhost";

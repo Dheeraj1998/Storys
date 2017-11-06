@@ -5,6 +5,7 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxv4bVHpxdauO3Huermqgoy86jPun8BUQ&callback=initMap" type="text/javascript"></script>
   <script>
@@ -26,50 +27,66 @@
 
 <body onload="initMap()" >
   <?php
-  $servername = "localhost";
-  $db_username = "root";
-  $db_password = file_get_contents('password.txt');
-  $db_name = "Storys";
+    $servername = "localhost";
+    $db_username = "root";
+    $db_password = file_get_contents('password.txt');
+    $db_name = "Storys";
 
-  //Create connection
-  $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
+    //Create connection
+    $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
 
-  $sql = "SELECT * FROM PostDetails;";
-  $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM PostDetails;";
+    $result = mysqli_query($conn, $sql);
 
-  $num_total = $result->num_rows;
+    $num_total = $result->num_rows;
 
-  $sql = "SELECT * FROM PostDetails WHERE Category = 'tech';";
-  $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM PostDetails WHERE Category = 'tech';";
+    $result = mysqli_query($conn, $sql);
 
-  $num_tech = $result->num_rows/$num_total * 100;
+    $num_tech = $result->num_rows/$num_total * 100;
 
-  $sql = "SELECT * FROM PostDetails WHERE Category = 'photography';";
-  $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM PostDetails WHERE Category = 'photography';";
+    $result = mysqli_query($conn, $sql);
 
-  $num_photo = $result->num_rows/$num_total * 100;
+    $num_photo = $result->num_rows/$num_total * 100;
 
-  $sql = "SELECT * FROM PostDetails WHERE Category = 'literature';";
-  $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM PostDetails WHERE Category = 'literature';";
+    $result = mysqli_query($conn, $sql);
 
-  $num_lit = $result->num_rows/$num_total * 100;
+    $num_lit = $result->num_rows/$num_total * 100;
 
-  $sql = "SELECT * FROM PostDetails WHERE Category = 'music';";
-  $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM PostDetails WHERE Category = 'music';";
+    $result = mysqli_query($conn, $sql);
 
-  $num_music = $result->num_rows/$num_total * 100;
+    $num_music = $result->num_rows/$num_total * 100;
 
-  $sql = "SELECT * FROM PostDetails WHERE Category = 'lifestyle';";
-  $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM PostDetails WHERE Category = 'lifestyle';";
+    $result = mysqli_query($conn, $sql);
 
-  $num_life = $result->num_rows/$num_total * 100;
+    $num_life = $result->num_rows/$num_total * 100;
+
+    $sql = "SELECT DISTINCT Username FROM PostDetails";
+    $result_users = mysqli_query($conn, $sql);
+
+    $post_timeline = array();
+
+    while($user_row = $result_users->fetch_assoc()){
+      $sql = "SELECT Time FROM PostDetails WHERE Username = '" . $user_row['Username'] . "' ORDER BY Time";
+      $user_post_result = mysqli_query($conn, $sql);
+      $post_timeline[$user_row['Username']] = array();
+
+      while($post_row = $user_post_result->fetch_assoc()){
+        array_push($post_timeline[$user_row['Username']], substr($post_row['Time'], 0, 2));
+      }
+    }
   ?>
 
-  <div id="container" style="min-width: 600px; height: 600px; max-width: 600px; margin: 0 auto"></div>
+  <div id="category_plot" style="min-width: 600px; height: 600px; max-width: 600px; margin: 0 auto"></div>
+  <div id="timeline_plot" style="min-width: 600px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
   <script>
     // Build the chart
-    Highcharts.chart('container', {
+    Highcharts.chart('category_plot', {
       chart: {
           plotBackgroundColor: null,
           plotBorderWidth: null,
@@ -166,6 +183,80 @@
       });
     });
   }
+  </script>
+
+  <script>
+  Highcharts.chart('timeline_plot', {
+
+    title: {
+        text: 'User Activity'
+    },
+
+    subtitle: {
+        text: 'Timeline'
+    },
+
+		xAxis: {
+        title: {
+            text: 'Number of posts'
+        }
+    },
+
+    yAxis: {
+        title: {
+            text: 'Hours'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 1
+        }
+    },
+
+    series: [
+      <?php
+        $res_string = "";
+        foreach($post_timeline as $key => $value) {
+          $res_string = $res_string . "{
+            name: '" . $key . "'," .
+            "data: [";
+              foreach($value as $item) {
+                $res_string = $res_string . $item . ", ";
+              }
+
+              $res_string = $res_string . "]".
+            "}, ";
+        }
+
+        echo $res_string;
+      ?>
+    ],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
 </script>
 
 <div id="map_canvas" style="width:700px; height:500px">
