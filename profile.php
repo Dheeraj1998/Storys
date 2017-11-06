@@ -117,7 +117,7 @@ $username = $_COOKIE['username'];
         <div class="author-container">
             <img src="assets_folder/assets/img/faces/shantanu.jpg"> <br>
             <h4><?php echo $name; ?></h4>
-            <h5><?php echo $email; ?></h5>
+            <h4><?php echo $email; ?></h4>
             <br> <br>
             <div class="follow-container">
                 <!--                <div>Follows</div>-->

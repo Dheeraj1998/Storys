@@ -149,6 +149,8 @@ i.fa-instagram {
 
 .author-container h5 {
     color: #c33f90;
+    width:100%;
+    text-align: center;
 }
 
 .follow-container {
