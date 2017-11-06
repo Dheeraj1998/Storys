@@ -119,6 +119,10 @@ td {
     box-shadow: 0px 0px 2px 1px rgba(240, 0, 0, 0.6);
 }
 
+.password-hidden {
+    display: none;
+}
+
 .username:focus, .password:focus {
     background-color: #fcfcff;
     box-shadow: 0px 0px 3px 1px #39e;
@@ -165,7 +169,23 @@ td {
     background-color: #fff;
     cursor: pointer;
     color: #3e9;
+    width: 50%;
     box-shadow: 0px 0px 3px 1px #3e9;
+}
+
+a.forgot {
+    padding-top: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+    color: orangered;
+    text-shadow: 0px 0px 1px orangered;
+    margin: 5px 0px 5px 0px;
+}
+
+a.forgot:hover {
+    color: palevioletred;
+    text-shadow: 0px 0px 1px palevioletred;
 }
 
 a.register {
@@ -178,8 +198,8 @@ a.register {
 }
 
 a.register:hover {
-    color: orangered;
-    text-shadow: 0px 0px 1px orangered;
+    color: seagreen;
+    text-shadow: 0px 0px 1px seagreen;
 }
 
 .register > span {
