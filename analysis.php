@@ -21,8 +21,60 @@
 
     firebase.initializeApp(config);
     var database = firebase.database();
-    var locationRef = firebase.database().ref('user_location');
+    var locationRef = firebase.database().ref('user_details');
   </script>
+
+  <script type="text/javascript">
+    var geocoder;
+    var map;
+
+    function initMap() {
+      geocoder = new google.maps.Geocoder();
+      var myOptions = {
+        zoom: 2,
+        center: new google.maps.LatLng(0, 0),
+        mapTypeControl: true,
+        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+        navigationControl: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+      locationRef.on('value', function(snapshot){
+        snapshot.forEach(function(inner_snapshot){
+          inner_snapshot.forEach(function(child){
+                var address = child.val();
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                  if (status == google.maps.GeocoderStatus.OK) {
+                    if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+
+                      var infowindow = new google.maps.InfoWindow({
+                          content: '<b>' + child.key + '</b> - ' + address,
+                          size: new google.maps.Size(150,50)
+                      });
+
+                      var marker = new google.maps.Marker({
+                          position: results[0].geometry.location,
+                          map: map,
+                          title:address
+                      });
+                      google.maps.event.addListener(marker, 'click', function() {
+                          infowindow.open(map,marker);
+                      });
+
+                    } else {
+                      alert("No results found");
+                    }
+                  } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                  }
+                });
+              });
+            });
+          });
+        }
+    </script>
 </head>
 
 <body onload="initMap()" >
@@ -132,57 +184,6 @@
           }]
       }]
     });
-  </script>
-
-<script type="text/javascript">
-  var geocoder;
-  var map;
-
-  function initMap() {
-    geocoder = new google.maps.Geocoder();
-    var myOptions = {
-      zoom: 2,
-      center: new google.maps.LatLng(0, 0),
-      mapTypeControl: true,
-      mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-      navigationControl: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-    locationRef.on('value', function(snapshot){
-      snapshot.forEach(function(child){
-        var address = child.val();
-
-        geocoder.geocode( { 'address': address}, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
-
-              var infowindow = new google.maps.InfoWindow({
-                  content: '<b>' + child.key + '</b> - ' + address,
-                  size: new google.maps.Size(150,50)
-              });
-
-              var marker = new google.maps.Marker({
-                  position: results[0].geometry.location,
-                  map: map,
-                  title:address
-              });
-              google.maps.event.addListener(marker, 'click', function() {
-                  infowindow.open(map,marker);
-              });
-
-            } else {
-              alert("No results found");
-            }
-          } else {
-            alert("Geocode was not successful for the following reason: " + status);
-          }
-        });
-      });
-    });
-  }
   </script>
 
   <script>

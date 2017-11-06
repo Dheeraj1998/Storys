@@ -112,13 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
-    //$sql = "INSERT INTO UserAccounts (Username, Password, Name, Email) VALUES ('" . $username . "', '" . $password . "', '" . $name . "', '" . $email . "');";
+    $sql = "INSERT INTO UserAccounts (Username, Password, Name, Email) VALUES ('" . $username . "', '" . $password . "', '" . $name . "', '" . $email . "');";
 
-  if (/*$conn->query($sql) === TRUE */ TRUE) {
+    if {$conn->query($sql) === TRUE) {
       echo "<script>
-              database.ref('" . $firebase_database . "').set({
+              var rootRef = database.ref();
+              var storeRef = rootRef.child('user_details');
+              var databaseRef = storeRef.push();
+
+              databaseRef.set({
                 '" . $username . "': '" . $location . "'
               });
+
               alert('The registration has been done!');
             </script>";
         die();
