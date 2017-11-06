@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
     $sql = "INSERT INTO UserAccounts (Username, Password, Name, Email) VALUES ('" . $username . "', '" . $password . "', '" . $name . "', '" . $email . "');";
 
-    if {$conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
       echo "<script>
               var rootRef = database.ref();
               var storeRef = rootRef.child('user_details');

@@ -21,6 +21,44 @@
     <title>Login</title>
 </head>
 
+<?php
+
+$incorrect_class = "correct";
+$username_class = "username";
+$password_class = "password";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = hash('md4', $_POST['password']);
+
+    $servername = "mysql2.gear.host";
+    $db_username = "storys";
+    $db_password = "Bf0Y~t?2zfRp";
+    $db_name = "Storys";
+
+    //Create connection
+    $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
+
+    $sql = "SELECT * FROM UserAccounts WHERE Username = '" . $username . "' AND Password = '" . $password . "';";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) == 0) {
+        echo "Fail";
+        $incorrect_class = "incorrect";
+        $username_class = "username-incorrect";
+        $password_class = "password-incorrect";
+    } else {
+        $cookie_value = $username;
+        setcookie('username', $cookie_value, time() + 10000, "/");
+
+        header("Location: dashboard.php");
+        die();
+    }
+
+}
+?>
+
 <body>
 
 <div class="outer-container">
@@ -56,12 +94,15 @@
 
         <table class="inner-container">
             <tr>
+                <td colspan="2" class="<?php echo $incorrect_class;?>">Incorrect Username and/or Password !!!</td>
+            </tr>
+            <tr>
                 <td>Username</td>
-                <td><input class="username" type="text" name="username" placeholder="Username"></td>
+                <td><input class="<?php echo $username_class;?>" type="text" name="username" placeholder="Username"></td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td><input class="password" type="password" name="password" placeholder="Password"></td>
+                <td><input class="<?php echo $password_class;?>" type="password" name="password" placeholder="Password"></td>
             </tr>
             <tr>
                 <td colspan="2"><input class="login" type="submit" name="submit" value="Login"></td>
@@ -75,34 +116,6 @@
 
 </body>
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = hash('md4', $_POST['password']);
 
-    $servername = "mysql2.gear.host";
-    $db_username = "storys";
-    $db_password = "Bf0Y~t?2zfRp";
-    $db_name = "Storys";
-
-    //Create connection
-    $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
-
-    $sql = "SELECT * FROM UserAccounts WHERE Username = '" . $username . "' AND Password = '" . $password . "';";
-
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) == 0) {
-        echo "Fail";
-    } else {
-        $cookie_value = $username;
-        setcookie('username', $cookie_value, time() + 10000, "/");
-
-        header("Location: dashboard.php");
-        die();
-    }
-
-}
-?>
 
 </html>

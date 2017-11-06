@@ -109,9 +109,43 @@ td {
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
+.username-incorrect, .password-incorrect {
+    width: 94%;
+    margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #fcc;
+    box-shadow: 0px 0px 2px 1px rgba(240, 0, 0, 0.6);
+}
+
 .username:focus, .password:focus {
     background-color: #fcfcff;
     box-shadow: 0px 0px 3px 1px #39e;
+}
+
+.correct {
+    color: #d00;
+    display: none /*table-cell*/;
+    text-shadow: 0px 0px 1px rgba(230,0,0,0.7);
+    padding-top: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    background: radial-gradient(rgba(230,0,0,0.4), rgba(230,0,0,0.2), rgba(0,0,0,0));
+    position: relative;
+}
+
+.incorrect {
+    color: #d00;
+    display: table-cell;
+    text-shadow: 0px 0px 1px rgba(230,0,0,0.7);
+    padding-top: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    background: radial-gradient(rgba(230,0,0,0.4), rgba(230,0,0,0.2), rgba(0,0,0,0));
+    position: relative;
 }
 
 .login, .login:active {
