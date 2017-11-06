@@ -40,9 +40,7 @@ if ($result->num_rows > 0) {
                       <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                   </td>
                   <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
-                  <td rowspan='2' width='10%' class='settings-container'>
-                      <img src='assets_folder/assets/img/icons/settings.png'>
-                  </td>
+                  
               </tr>
               <tr>
                   <td width='13%' class='time-container'>" . $row["Time"] . " | </td>
@@ -92,7 +90,7 @@ if ($result->num_rows > 0) {
 
         echo "            </div>
                   </td>
-                  <td width='33.33%' class='share-btn-container onclick = 'sharePost(" . $row["ID"] . ")'>Share</td>
+                  <td width='33.33%' class='share-btn-container' onclick = 'sharePost(" . $row["ID"] . ")'>Share</td>
                   <td width='33.33%' class='comment-btn-container'><div class = 'comment-button' onclick = 'commentPost(" . $row["ID"] . ")'>Comment</div></td>
               </tr>
               <tr>
@@ -143,7 +141,7 @@ if ($result->num_rows > 0) {
 
     }
 } else {
-    echo "0 results";
+    echo "<span class='none' style='font-family: scriptina'>Sorry, No results found!</span>";
 }
 
 ?>
