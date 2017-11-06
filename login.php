@@ -80,12 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = hash('md4', $_POST['password']);
 
-    $servername = "localhost";
-    $db_username = "root";
-
-    $db_password = file_get_contents('password.txt');
-    echo $db_password;
-
+    $servername = "mysql2.gear.host";
+    $db_username = "storys";
+    $db_password = "Bf0Y~t?2zfRp";
     $db_name = "Storys";
 
     //Create connection
