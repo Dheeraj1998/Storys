@@ -34,48 +34,48 @@ if ($username == null) {
                 document.cookie = 'username=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                 window.location = 'login.php';
             }
-      }
-
-      function sharePost(element_id){
-        text = 'https://storys.herokuapp.com/view_story.php?post_id=' + element_id;
-        var textArea = document.createElement("textarea");
-
-        // Place in top-left corner of screen regardless of scroll position.
-        textArea.style.position = 'fixed';
-        textArea.style.top = 0;
-        textArea.style.left = 0;
-
-        // Ensure it has a small width and height. Setting to 1px / 1em
-        // doesn't work as this gives a negative w/h on some browsers.
-        textArea.style.width = '2em';
-        textArea.style.height = '2em';
-
-        // We don't need padding, reducing the size if it does flash render.
-        textArea.style.padding = 0;
-
-        // Clean up any borders.
-        textArea.style.border = 'none';
-        textArea.style.outline = 'none';
-        textArea.style.boxShadow = 'none';
-
-        // Avoid flash of white box if rendered for any reason.
-        textArea.style.background = 'transparent';
-        textArea.value = text;
-
-        document.body.appendChild(textArea);
-        textArea.select();
-
-        try {
-          var successful = document.execCommand('copy');
-          var msg = successful ? 'successful' : 'unsuccessful';
-          console.log('Copying text command was ' + msg);
-        } catch (err) {
-          console.log('Oops, unable to copy');
         }
 
-        document.body.removeChild(textArea);
-        alert('The link has been copied to your clipboard!');
-      }
+        function sharePost(element_id) {
+            text = 'https://storys.herokuapp.com/view_story.php?post_id=' + element_id;
+            var textArea = document.createElement("textarea");
+
+            // Place in top-left corner of screen regardless of scroll position.
+            textArea.style.position = 'fixed';
+            textArea.style.top = 0;
+            textArea.style.left = 0;
+
+            // Ensure it has a small width and height. Setting to 1px / 1em
+            // doesn't work as this gives a negative w/h on some browsers.
+            textArea.style.width = '2em';
+            textArea.style.height = '2em';
+
+            // We don't need padding, reducing the size if it does flash render.
+            textArea.style.padding = 0;
+
+            // Clean up any borders.
+            textArea.style.border = 'none';
+            textArea.style.outline = 'none';
+            textArea.style.boxShadow = 'none';
+
+            // Avoid flash of white box if rendered for any reason.
+            textArea.style.background = 'transparent';
+            textArea.value = text;
+
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+
+            document.body.removeChild(textArea);
+            alert('The link has been copied to your clipboard!');
+        }
 
     </script>
 
@@ -104,11 +104,11 @@ if ($result->num_rows > 0) {
 
 <div class="outer-container">
     <nav>
-        <h5><span>Story</span><a href = 'profile.php?username=<?php echo $username?>'><?php echo $name; ?></a></h5>
-        <h4 class = "logout" onclick="logoutUser()">Logout</h4>
-        <h4 class = "links"><a href="popular_stories.php">Explore!</a></h4>
-        <h4 class = "links"><a href="search.php">Search here</a></h4>
-        <h4 class = "links"><a href="analysis.php">Analytics</a></h4>
+        <h5><span>Story</span><a href='profile.php?username=<?php echo $username ?>'><?php echo $name; ?></a></h5>
+        <h4 class="logout" onclick="logoutUser()">Logout</h4>
+        <h4 class="links"><a href="popular_stories.php">Explore!</a></h4>
+        <h4 class="links"><a href="search.php">Search here</a></h4>
+        <h4 class="links"><a href="analysis.php">Analytics</a></h4>
     </nav>
 
     <section>
@@ -123,8 +123,8 @@ if ($result->num_rows > 0) {
                 $sql = "SELECT * FROM FollowingDetails WHERE Follower = '" . $username . "' AND Leader = '" . $row['Username'] . "';";
                 $follow_result = mysqli_query($conn, $sql);
 
-                if($follow_result->num_rows == 0){
-                  continue;
+                if ($follow_result->num_rows == 0) {
+                    continue;
                 }
 
                 $sql = "SELECT * FROM UserAccounts WHERE username = '" . $row["Username"] . "';";
@@ -162,8 +162,8 @@ if ($result->num_rows > 0) {
                             <td class='tagline-container'> --> " . $row["Tagline"] . "</td>
                         </tr>
                         <tr>
-                            <td colspan='2' class='content-container' style="."\"background-image: url('" . $url. "');\">"
-                . nl2br($row["Content"]) . "</td>
+                            <td colspan='2' class='content-container' style=" . "\"background-image: url('" . $url . "');\">"
+                    . nl2br($row["Content"]) . "</td>
                         </tr>
                     </table>
                     <table>
@@ -191,8 +191,6 @@ if ($result->num_rows > 0) {
                 if ($found == false) {
                     echo "<span class='like'>Like</span>";
                 }
-
-
 
 
                 echo "            </div>
@@ -252,12 +250,14 @@ if ($result->num_rows > 0) {
             $check_bool = true;
         }
 
-        if($check_bool == false){
-          echo "<span class='none' style='font-family: scriptina'>Sorry, No results found!</span>";
+        if ($check_bool == false) {
+            echo "<span class='none' style='font-family: scriptina'>Sorry, No results found!</span>";
         }
 
         ?>
-        <a href = 'new_story.php'><div class = 'new-story-container' title="Add a new story!">+</div></a>
+        <a href='new_story.php'>
+            <div class='new-story-container' title="Add a new story!">+</div>
+        </a>
     </section>
 </div>
 </body>

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link href="login_styles.css" rel="stylesheet" type="text/css">
     <link href="assets_folder/assets/css/main.css" rel="stylesheet">
+    <link href="forgot_styles.css" rel="stylesheet" type="text/css">
 
     <!--     Fonts and icons     -->
     <link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes=
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            echo '<script>alert("An email with the password has been sent to the associated email account!");</script>';
+            echo '<script>alert("An email with the password has been sent to the associated email account !!!");</script>';
         }
     }
 }
@@ -96,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="outer-container">
     <nav>
-        <h5>Start <span>Story</span> - ing</h5>
+        <h5>Get back into <span>Storys</span></h5>
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -129,6 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </tr>
             <tr>
                 <td colspan="2"><input class="login" type="submit" name="submit" value="Reset Password"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><a class="back-to-login" href="login.php">Back to Login page</a></td>
             </tr>
     </form>
 </div>

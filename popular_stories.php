@@ -7,6 +7,32 @@ if ($username == null) {
     header("Location: login.php");
 }
 
+error_reporting(0);
+$category = $_GET['category'];
+
+$techClass = "not-selected";
+$lifeClass = "not-selected";
+$musicClass = "not-selected";
+$photoClass = "not-selected";
+$litClass = "not-selected";
+
+if ($category == null) {
+    $category = "tech";
+}
+
+if ($category == "tech") {
+    $techClass = "selected";
+} else if ($category == "lifestyle") {
+    $lifeClass = "selected";
+} else if ($category == "music") {
+    $musicClass = "selected";
+} else if ($category == "photography") {
+    $photolass = "selected";
+} else if ($category == "literature") {
+    $litClass = "selected";
+}
+
+
 ?>
 
 <html>
@@ -38,7 +64,7 @@ if ($username == null) {
             }
         }
 
-        function sharePost(element_id){
+        function sharePost(element_id) {
             text = 'https://storys.herokuapp.com/view_story.php?post_id=' + element_id;
             var textArea = document.createElement("textarea");
 
@@ -84,7 +110,7 @@ if ($username == null) {
     <title>Explore domains</title>
 </head>
 
-<body>
+<body class="<?php echo $category; ?>">
 
 
 <div class="outer-container">
@@ -92,24 +118,17 @@ if ($username == null) {
     <nav>
         <a href='dashboard.php'><h5><span>Story</span></h5></a>
         <ul>
-            <li class='topic-container' onclick="changeTopic('tech')">#technology</li>
-            <li class='topic-container' onclick="changeTopic('lifestyle')">#lifestyle</li>
-            <li class='topic-container' onclick="changeTopic('music')">#music</li>
-            <li class='topic-container' onclick="changeTopic('photography')">#photography</li>
-            <li class='topic-container' onclick="changeTopic('literature')">#literature</li>
+            <li class='<?php echo $techClass; ?>' onclick="changeTopic('tech')">#technology</li>
+            <li class='<?php echo $lifeClass; ?>' onclick="changeTopic('lifestyle')">#lifestyle</li>
+            <li class='<?php echo $musicClass; ?>' onclick="changeTopic('music')">#music</li>
+            <li class='<?php echo $photoClass; ?>' onclick="changeTopic('photography')">#photography</li>
+            <li class='<?php echo $litClass; ?>' onclick="changeTopic('literature')">#literature</li>
         </ul>
     </nav>
 
     <div class="posts">
 
         <?php
-        error_reporting(0);
-        $category = $_GET['category'];
-
-        if ($category == null) {
-            $category = "tech";
-        }
-
         $servername = "mysql2.gear.host";
         $db_username = "storys";
         $db_password = "Bf0Y~t?2zfRp";
@@ -157,7 +176,7 @@ if ($username == null) {
 	                  <td class='tagline-container'> --> " . $row["Tagline"] . "</td>
 	              </tr>
 	              <tr>
-	                  <td colspan='2' class='content-container' style="."\"background-image: url('" . $url. "');\">"
+	                  <td colspan='2' class='content-container' style=" . "\"background-image: url('" . $url . "');\">"
                     . nl2br($row["Content"]) . "</td>
 	              </tr>
 	          </table>

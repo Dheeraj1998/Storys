@@ -1,6 +1,31 @@
 * {
-    margin : 0px;
-    padding : 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body.tech {
+    background-image: url('assets_folder/assets/img/tech_bg.jpg');
+}
+
+body.music {
+    background-image: url('assets_folder/assets/img/music_bg.jpg');
+}
+
+body.lifestyle {
+    background-image: url('assets_folder/assets/img/lifestyle_bg.jpg');
+}
+
+body.literature {
+    background-image: url('assets_folder/assets/img/lit_bg.png');
+}
+
+body.photography {
+    background-image: url('assets_folder/assets/img/photo_bg.jpg');
 }
 
 .posts {
@@ -12,11 +37,12 @@ span.none {
     font-size: 80px;
     position: absolute;
     top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 .topic-container {
-    color:white;
+    color: white;
 }
 
 nav {
@@ -53,7 +79,7 @@ nav ul {
     margin-left: 10px;
 }
 
-nav ul li {
+nav ul li.not-selected {
     display: inline-block;
     background-color: red;
     font-size: 14px;
@@ -66,7 +92,20 @@ nav ul li {
     transition: all 0.3s;
 }
 
-nav ul li:hover {
+nav ul li.selected {
+    display: inline-block;
+    background-color: white;
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 5px;
+    border-top-right-radius: 8px;
+    color: #d00;
+    font-weight: bold;
+    box-shadow: inset 0px 2px 3px 2px #c00;
+    transition: all 0.3s;
+}
+
+nav ul li.not-selected:hover {
     padding-left: 15px;
     padding-right: 15px;
     color: #d00;
