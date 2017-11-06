@@ -32,7 +32,6 @@ $password = "";
 $username = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-//    $password = hash('md4', $_POST['password']);
 
     $servername = "mysql2.gear.host";
     $db_username = "storys";
@@ -41,35 +40,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
-
     $sql = "SELECT * FROM UserAccounts WHERE Username = '" . $username . "';";
 
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 0) {
-        $incorrect_class = "incorrect";
-        $username_class = "username-incorrect";
+        echo "<script>
+                alert('No such username found!');
+              </script>";
     } else {
         $row = $result->fetch_assoc();
-        $password = $row['Password'];
-        $password_class = "password";
-        $display_password_label = "table-cell";
+        $password = substr(uniqid(rand(), true), 0, 10);
 
-        $password = substr($password, 0, 8);
         $sql = "UPDATE UserAccounts SET Password = '" . hash('md4', $password) . "' WHERE Username = '" . $username . "';";
-        mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
+        require 'PHPMailer/PHPMailerAutoload.php';
+
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Port = 465;
+        $mail->Username = 'help.storys@gmail.com';                 // SMTP username
+        $mail->Password = 'lVjopiaLRF5uaHG';                           // SMTP password
+        $mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
+
+        $mail->From = 'help.storys@gmail.com';
+        $mail->FromName = 'Customer Support - Storys';
+        $mail->addAddress($row['Email'], $row['Name']);     // Add a recipient
+        $mail->addReplyTo('help.storys@gmail.com', 'Customer Support - Storys');
+
+        $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = 'Forgot your password';
+        $mail->Body    = "Hey <b>" . $row['Name'] . "</b>,
+                            <br><br>There was a recent request at Storys that you had forgotten your password.
+                            <br>The password for your account has been reset to <b>" . $password . "</b>.
+                            <br>Have a great day ahead!
+                            <br><br>Storys";
+
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo '<script>alert("An email with the password has been sent to the associated email account!");</script>';
+        }
     }
-
 }
 ?>
 
 <body>
 
 <div class="outer-container">
-
     <nav>
-
         <h5>Start <span>Story</span> - ing</h5>
 
         <ul class="navbar-nav ml-auto">
@@ -96,34 +122,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </nav>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-
         <table class="inner-container">
             <tr>
-                <td colspan="2" class="<?php echo $incorrect_class; ?>">Incorrect Username !!!</td>
-            </tr>
-            <tr>
                 <td>Username</td>
-                <td><input class="<?php echo $username_class; ?>" type="text" name="username" placeholder="Username"
-                           value="<?php echo $username; ?>"></td>
+                <td><input class="<?php echo $username_class; ?>" type="text" name="username" value="<?php echo $username; ?>"></td>
             </tr>
             <tr>
-                <td style="display: <?php echo $display_password_label; ?>;">Password</td>
-                <td><input class="<?php echo $password_class; ?>" type="text" name="password" placeholder="Password"
-                           value="<?php echo $password; ?>"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input class="login" type="submit" name="submit" value="Get Password"></td>
+                <td colspan="2"><input class="login" type="submit" name="submit" value="Reset Password"></td>
             </tr>
     </form>
 </div>
 
 </body>
-
-<?php
-if ($password != '') {
-    echo "<script>alert('Your password has been reset to \'" . $password . "\'');</script>";
-}
-?>
-
-
 </html>
