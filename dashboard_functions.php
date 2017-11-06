@@ -2,9 +2,9 @@
   if($_POST['func_type'] == 'likePost'){
     $post_id = $_POST['post_id'];
 
-    $servername = "localhost";
-    $db_username = "root";
-    $db_password = file_get_contents('password.txt');
+    $servername = "mysql2.gear.host";
+    $db_username = "storys";
+    $db_password = "Bf0Y~t?2zfRp";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -37,9 +37,9 @@
   elseif($_POST['func_type'] == 'unlikePost'){
     $post_id = $_POST['post_id'];
 
-    $servername = "localhost";
-    $db_username = "root";
-    $db_password = file_get_contents('password.txt');
+    $servername = "mysql2.gear.host";
+    $db_username = "storys";
+    $db_password = "Bf0Y~t?2zfRp";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];
@@ -75,9 +75,9 @@
     $post_id = $_POST['post_id'];
     $comment_content = $_POST['comment_content'];
 
-    $servername = "localhost";
-    $db_username = "root";
-    $db_password = file_get_contents('password.txt');
+    $servername = "mysql2.gear.host";
+    $db_username = "storys";
+    $db_password = "Bf0Y~t?2zfRp";
     $db_name = "Storys";
 
     $username = $_COOKIE['username'];

@@ -39,7 +39,7 @@ if ($username == null) {
         }
 
         function sharePost(element_id){
-            text = 'http://localhost/Dheeraj_Files/Storys/view_story.php?post_id=' + element_id;
+            text = 'https://storys.herokuapp.com/view_story.php?post_id=' + element_id;
             var textArea = document.createElement("textarea");
 
             // Place in top-left corner of screen regardless of scroll position.
@@ -109,9 +109,9 @@ if ($username == null) {
             $category = "tech";
         }
 
-        $servername = "localhost";
-        $db_username = "root";
-        $db_password = file_get_contents('password.txt');
+        $servername = "mysql2.gear.host";
+        $db_username = "storys";
+        $db_password = "Bf0Y~t?2zfRp";
         $db_name = "Storys";
 
         //Create connection

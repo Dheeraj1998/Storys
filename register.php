@@ -104,9 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $location = $_POST['location'];
     $email = $_POST['email'];
 
-    $servername = "localhost";
-    $db_username = "root";
-    $db_password = file_get_contents('password.txt');
+    $servername = "mysql2.gear.host";
+    $db_username = "storys";
+    $db_password = "Bf0Y~t?2zfRp";
     $db_name = "Storys";
     $firebase_database = "user_location";
 

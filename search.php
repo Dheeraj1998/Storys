@@ -29,7 +29,7 @@
             }
 
             function sharePost(element_id){
-                text = 'http://localhost/Dheeraj_Files/Storys/view_story.php?post_id=' + element_id;
+                text = 'https://storys.herokuapp.com/view_story.php?post_id=' + element_id;
                 var textArea = document.createElement("textarea");
 
                 // Place in top-left corner of screen regardless of scroll position.
