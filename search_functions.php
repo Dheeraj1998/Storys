@@ -1,7 +1,10 @@
 <?php
-$servername = "mysql2.gear.host";
-$db_username = "storys";
-$db_password = "Bf0Y~t?2zfRp";
+$user_credentials = file_get_contents("credentials.txt");
+$user_credentials = explode('|', $user_credentials);
+
+$servername = $user_credentials[0];
+$db_username = $user_credentials[1];
+$db_password = $user_credentials[2];
 $db_name = "Storys";
 
 $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
@@ -40,7 +43,7 @@ if ($result->num_rows > 0) {
                       <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                   </td>
                   <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
-                  
+
               </tr>
               <tr>
                   <td width='13%' class='time-container'>" . $row["Time"] . " | </td>

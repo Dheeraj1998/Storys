@@ -3,9 +3,12 @@
     $leader_name = $_POST['leader_name'];
     $follower_name = $_POST['follower_name'];
 
-    $servername = "mysql2.gear.host";
-    $db_username = "storys";
-    $db_password = "Bf0Y~t?2zfRp";
+    $user_credentials = file_get_contents("credentials.txt");
+    $user_credentials = explode('|', $user_credentials);
+
+    $servername = $user_credentials[0];
+    $db_username = $user_credentials[1];
+    $db_password = $user_credentials[2];
     $db_name = "Storys";
 
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
@@ -24,9 +27,12 @@ if($_POST['func_type'] == 'unfollowUser'){
     $leader_name = $_POST['leader_name'];
     $follower_name = $_POST['follower_name'];
 
-    $servername = "mysql2.gear.host";
-    $db_username = "storys";
-    $db_password = "Bf0Y~t?2zfRp";
+    $user_credentials = file_get_contents("credentials.txt");
+    $user_credentials = explode('|', $user_credentials);
+
+    $servername = $user_credentials[0];
+    $db_username = $user_credentials[1];
+    $db_password = $user_credentials[2];
     $db_name = "Storys";
 
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
@@ -44,9 +50,12 @@ if($_POST['func_type'] == 'unfollowUser'){
   if($_POST['func_type'] == 'deletePost'){
     $post_id = $_POST['post_id'];
 
-    $servername = "mysql2.gear.host";
-    $db_username = "storys";
-    $db_password = "Bf0Y~t?2zfRp";
+    $user_credentials = file_get_contents("credentials.txt");
+    $user_credentials = explode('|', $user_credentials);
+
+    $servername = $user_credentials[0];
+    $db_username = $user_credentials[1];
+    $db_password = $user_credentials[2];
     $db_name = "Storys";
 
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);

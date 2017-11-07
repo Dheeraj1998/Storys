@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $servername = $user_credentials[0];
     $db_username = $user_credentials[1];
     $db_password = $user_credentials[2];
-    $db_name = $user_credentials[3];
+    $db_name = "Storys";
 
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cookie_value = $username;
         setcookie('username', $cookie_value, time() + 10000, "/");
 
-        //header("Location: dashboard.php");
+        header("Location: dashboard.php");
         die();
     }
 }
