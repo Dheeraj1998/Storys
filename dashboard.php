@@ -54,7 +54,7 @@ if ($username == null) {
             textArea.style.padding = 0;
 
             // Clean up any borders.
-            textArea.style.border = 'none';
+            textArea.style.border    = 'none';
             textArea.style.outline = 'none';
             textArea.style.boxShadow = 'none';
 
