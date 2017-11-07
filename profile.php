@@ -54,7 +54,7 @@ if ($username == null) {
             }
         }
 
-        function sharePost(element_id){
+        function sharePost(element_id) {
             text = 'https://storys.herokuapp.com/view_story.php?post_id=' + element_id;
             var textArea = document.createElement("textarea");
 
@@ -101,7 +101,7 @@ if ($username == null) {
 
 <body>
 <nav>
-    <h5><a href = 'dashboard.php'><span>Story</span></a><?php echo $name; ?></h5>
+    <h5><a href='dashboard.php'><span>Story</span></a><?php echo $name; ?></h5>
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-placement="bottom" href=
@@ -128,45 +128,58 @@ if ($username == null) {
 <div class="main-container">
     <div class="left-container">
         <div class="author-container">
-            <img src="assets_folder/assets/img/faces/shantanu.jpg"> <br>
-            <h4><?php echo $name; ?></h4>
-            <h4><?php echo $email; ?></h4>
-            <br> <br>
-            <div class="follow-container">
-                <?php
-                if ($profile_username != $username) {
-                    $follow_check_sql = "SELECT * FROM FollowingDetails WHERE Leader = '" . $profile_username . "' AND Follower = '" . $username . "';";
-                    $follow_result = mysqli_query($conn, $follow_check_sql);
+            <table>
+                <tr>
+                    <td><div class="img-container"><img src="assets_folder/assets/img/faces/shantanu.jpg"></div></td>
+                </tr>
+                <tr>
+                    <td><h4><?php echo $name; ?></h4></td>
+                </tr>
+                <tr>
+                    <td><h4><?php echo $email; ?></h4></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="follow-container">
+                            <?php
+                            if ($profile_username != $username) {
+                                $follow_check_sql = "SELECT * FROM FollowingDetails WHERE Leader = '" . $profile_username . "' AND Follower = '" . $username . "';";
+                                $follow_result = mysqli_query($conn, $follow_check_sql);
 
-                    if ($follow_result->num_rows == 0) {
-                        echo "<div id = 'follow-button' class='follow' onclick = 'followUser(\"" . $profile_username . "\",\"" . $username . "\")'>FOLLOW</div>";
-                    } else {
-                        echo "<div id = 'follow-button' class='following' onclick = 'followUser(\"" . $profile_username . "\",\"" . $username . "\")'>FOLLOWING</div>";
-                    }
-                }
-                ?>
+                                if ($follow_result->num_rows == 0) {
+                                    echo "<div id = 'follow-button' class='follow' onclick = 'followUser(\"" . $profile_username . "\",\"" . $username . "\")'>FOLLOW</div>";
+                                } else {
+                                    echo "<div id = 'follow-button' class='following' onclick = 'followUser(\"" . $profile_username . "\",\"" . $username . "\")'>FOLLOWING</div>";
+                                }
+                            }
+                            ?>
 
-                <?php
-                  $guage_leader_sql = "SELECT * FROM FollowingDetails WHERE Leader = '" . $profile_username . "';";
-                  $result = mysqli_query($conn, $guage_leader_sql);
-                  $followers_count = $result->num_rows;
+                            <?php
+                            $guage_leader_sql = "SELECT * FROM FollowingDetails WHERE Leader = '" . $profile_username . "';";
+                            $result = mysqli_query($conn, $guage_leader_sql);
+                            $followers_count = $result->num_rows;
 
-                  $guage_follower_sql = "SELECT * FROM FollowingDetails WHERE Follower = '" . $profile_username . "';";
-                  $result = mysqli_query($conn, $guage_follower_sql);
-                  $following_count = $result->num_rows;
+                            $guage_follower_sql = "SELECT * FROM FollowingDetails WHERE Follower = '" . $profile_username . "';";
+                            $result = mysqli_query($conn, $guage_follower_sql);
+                            $following_count = $result->num_rows;
 
-                  if(($followers_count + $following_count) != 0){
-                    $gauge_value = $followers_count / ($followers_count + $following_count) * 100;
-                  }
-
-                  else{
-                    $gauge_value = 0;
-                  }
-                ?>
-            </div>
-            <div style="width: 600px; height: 400px; margin: 0 auto">
-              <div id="container-endorsements" style="width: 300px; height: 200px; float: left"></div>
-            </div>
+                            if (($followers_count + $following_count) != 0) {
+                                $gauge_value = $followers_count / ($followers_count + $following_count) * 100;
+                            } else {
+                                $gauge_value = 0;
+                            }
+                            ?>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 350px; height: 400px; margin: 0 auto; padding-left: 50px">
+                            <div id="container-endorsements" style="width: 300px; height: 200px; float: left"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="middle-container">
@@ -303,90 +316,90 @@ if ($username == null) {
 </body>
 <script>
 
-var gaugeOptions = {
+    var gaugeOptions = {
 
-    chart: {
-        type: 'solidgauge',
-        backgroundColor:'rgba(255, 255, 255, 0.0)'
-    },
-
-    title: null,
-
-    pane: {
-        center: ['50%', '85%'],
-        size: '140%',
-        startAngle: -90,
-        endAngle: 90,
-        background: {
-            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-            innerRadius: '60%',
-            outerRadius: '100%',
-            shape: 'arc'
-        }
-    },
-
-    tooltip: {
-        enabled: false
-    },
-
-    // the value axis
-    yAxis: {
-        stops: [
-            [0.1, '#DF5353'], // green
-            [0.5, '#0099CC'], // yellow
-            [0.9, '#55BF3B'] // red
-        ],
-        lineWidth: 0,
-        minorTickInterval: null,
-        tickAmount: 2,
-        title: {
-            y: -70
+        chart: {
+            type: 'solidgauge',
+            backgroundColor: 'rgba(255, 255, 255, 0.0)'
         },
-        labels: {
-            y: 16
-        }
-    },
 
-    plotOptions: {
-        solidgauge: {
-            dataLabels: {
-                y: 5,
-                borderWidth: 0,
-                useHTML: true
+        title: null,
+
+        pane: {
+            center: ['50%', '85%'],
+            size: '140%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
             }
-        }
-    }
-};
-
-// The speed gauge
-var chartSpeed = Highcharts.chart('container-endorsements', Highcharts.merge(gaugeOptions, {
-    yAxis: {
-        min: 0,
-        max: 100,
-        title: {
-            text: 'Endorsements',
-            style: {
-              color: '#ECF0F1'
-            }
-        }
-    },
-
-    credits: {
-        enabled: false
-    },
-
-    series: [{
-        name: 'Endorsements',
-        data: [<?php echo $gauge_value; ?>],
-        dataLabels: {
-            format: '<div style="text-align:center"><span style="font-size:25px;color:#ECF0F1">{y}</span><br/>' +
-                   '<span style="font-size:12px;color:silver">EDs</span></div>'
         },
+
         tooltip: {
-            valueSuffix: 'EDs'
-        }
-    }]
+            enabled: false
+        },
 
-}));
+        // the value axis
+        yAxis: {
+            stops: [
+                [0.1, '#DF5353'], // green
+                [0.5, '#0099CC'], // yellow
+                [0.9, '#55BF3B'] // red
+            ],
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickAmount: 2,
+            title: {
+                y: -70
+            },
+            labels: {
+                y: 16
+            }
+        },
+
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        }
+    };
+
+    // The speed gauge
+    var chartSpeed = Highcharts.chart('container-endorsements', Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 100,
+            title: {
+                text: 'Endorsements',
+                style: {
+                    color: '#ECF0F1'
+                }
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'Endorsements',
+            data: [<?php echo $gauge_value; ?>],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:#ECF0F1">{y}</span><br/>' +
+                '<span style="font-size:12px;color:silver">EDs</span></div>'
+            },
+            tooltip: {
+                valueSuffix: 'EDs'
+            }
+        }]
+
+    }));
 </script>
 </html>

@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('assets_folder/assets/img/fabio-mangione.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets_folder/assets/img/fabio-mangione.jpg');
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
@@ -15,10 +15,10 @@ nav {
     position: fixed;
     width: 100%;
     height: 80px;
-    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
 
-h5{
+h5 {
     font-size: 24px;
     margin: 10px;
     padding: 0px;
@@ -27,12 +27,12 @@ h5{
     text-shadow: 0px 0px 4px rgba(221, 67, 166, 0.7);
 }
 
-nav a span{
+nav a span {
     font: bold 30px scriptina;
-    text-shadow: 0px 0px 4px rgba(230,230,230,0.7);
+    text-shadow: 0px 0px 4px rgba(230, 230, 230, 0.7);
 }
 
-nav h5 a span{
+nav h5 a span {
     color: white;
     border-right: 1px groove white;
     padding-right: 20px;
@@ -88,7 +88,7 @@ i.fa-instagram {
 }
 
 .main-container {
-    padding : 0;
+    padding: 0;
     /*background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.4));*/
     margin: 80px 15px 0px 15px;
     /*height: calc(100% - 200px);*/
@@ -96,8 +96,10 @@ i.fa-instagram {
 }
 
 .left-container {
-    width:350px;
+    width: 350px;
     position: fixed;
+    /*background-color: deepskyblue;*/
+    height: 100%;
 }
 
 .middle-container {
@@ -109,52 +111,70 @@ i.fa-instagram {
 
 .right-container {
     /*background: indianred;*/
-    width:0px;
+    width: 0px;
 }
 
 .author-container {
-    height: 350px;
     text-align: center;
     position: relative;
     left: 50%;
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
+    /*background-color: yellow;*/
+    z-index: 10;
+    width: 100%;
+    /*border: 3px solid white;*/
+    padding: 5px;
+    margin-top: 10px;
+    /*box-shadow: 0px 0px 6px 2px rgba(230, 230, 230, 0.7);*/
 }
 
 .hashtags-container {
     height: 50px;
 }
 
-.author-container {
+
+.img-container {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 3px solid white;
-    padding: 5px;
-    margin-top: 50px;
-    box-shadow: 0px 0px 6px 2px rgba(230,230,230,0.7);
+    padding:5px;
+    box-shadow: 0px 0px 6px 2px rgba(230, 230, 230, 0.7);
+    margin-left: 80px;
 }
 
-.author-container img {
-    width:100%;
-    height:100%;
+.author-container table tr td {
+    text-align: center;
+}
+.author-container table tr td img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
+
 .author-container h4 {
-    width:100%;
+    width: 100%;
+    font-size: 20px;
     color: white;
     text-align: center;
-    margin: 40px 0px 0px 0px;
-    text-shadow: 0px 0px 6px rgba(240,240,240,0.7);
+    margin: 10px 0px 0px 0px;
+    text-shadow: 0px 0px 6px rgba(240, 240, 240, 0.7);
 }
 
 .author-container h5 {
     color: #c33f90;
-    width:100%;
+    width: 100%;
     text-align: center;
 }
 
 .follow-container {
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+#container-endorsements {
+    width: 300px;
+    height: 300px;
+    margin-top: 0px;
 }
 
 div.following {
@@ -164,11 +184,11 @@ div.following {
     color: #2aabd2;
     font-size: 14px;
     font-weight: bold;
-    padding:8px;
-    left:50%;
+    padding: 8px;
+    left: 50%;
     border-radius: 5px;
     position: relative;
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
     transition: all 0.3s;
 }
 
@@ -184,11 +204,11 @@ div.follow {
     color: rgba(238, 238, 255, 1);
     font-size: 14px;
     font-weight: bold;
-    padding:8px;
-    left:50%;
+    padding: 8px;
+    left: 50%;
     border-radius: 5px;
     position: relative;
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
     transition: all 0.3s;
 }
 
@@ -197,16 +217,16 @@ div.follow:hover {
     text-shadow: 0px 0px 2px rgba(238, 238, 255, 1);
 }
 
-.story-container input, textarea{
-  color: black;
+.story-container input, textarea {
+    color: black;
 }
 
 .post-container {
-    width:80%;
+    width: 80%;
 }
 
 .settings-container {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 @font-face {
