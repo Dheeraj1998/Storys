@@ -20,6 +20,10 @@ $email = $row['Email'];
 
 $profile_username = $_GET['username'];
 $username = $_COOKIE['username'];
+
+if ($username == null) {
+    header("Location: login.php");
+}
 ?>
 
 <html>
@@ -96,6 +100,10 @@ $username = $_COOKIE['username'];
 <nav>
     <h5><a href = 'dashboard.php'><span>Story</span></a><?php echo $name; ?></h5>
     <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-placement="bottom" href=
+            "edit_profile.php" rel="tooltip">Edit Profile</a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" data-placement="bottom" href=
             "https://twitter.com/shantanu0323" rel="tooltip" target="_blank" title=
@@ -178,7 +186,7 @@ $username = $_COOKIE['username'];
                       <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                   </td>
                   <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
-                  <td rowspan='2' width='10%' class='settings-container'>
+                  <td rowspan='2' width='10%' class='settings-container' onclick = 'deletePost(" . $row["ID"] . ")'>
                       <img src='assets_folder/assets/img/icons/settings.png'>
                   </td>
               </tr>

@@ -31,10 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = hash('md4', $_POST['password']);
 
-    $servername = "mysql2.gear.host";
-    $db_username = "storys";
-    $db_password = "Bf0Y~t?2zfRp";
-    $db_name = "Storys";
+    $user_credentials = file_get_contents("credentials.txt");
+    $user_credentials = explode('|', $user_credentials);
+
+    $servername = $user_credentials[0];
+    $db_username = $user_credentials[1];
+    $db_password = $user_credentials[2];
+    $db_name = $user_credentials[3];
 
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
@@ -51,10 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cookie_value = $username;
         setcookie('username', $cookie_value, time() + 10000, "/");
 
-        header("Location: dashboard.php");
+        //header("Location: dashboard.php");
         die();
     }
-
 }
 ?>
 

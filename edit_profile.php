@@ -3,7 +3,6 @@
     <link rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link href="register_styles.css" rel="stylesheet" type="text/css">
-    <!--    <link href="paperkit2/assets/css/bootstrap.min.css" rel="stylesheet"/>-->
     <link href="assets_folder/assets/css/main.css" rel="stylesheet">
     <link href="assets_folder/assets/css/demo.css" rel="stylesheet">
     <!--     Fonts and icons     -->
@@ -13,43 +12,12 @@
     <link href="assets_folder/assets/img/favicon.ico" rel="icon" type="image/png">
     <link href="assets_folder/assets/css/nucleo-icons.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyC5jz22XXOsoMhBQC5m8Is3ocn7rctWn5s",
-            authDomain: "storys-analytics.firebaseapp.com",
-            databaseURL: "https://storys-analytics.firebaseio.com",
-            projectId: "storys-analytics",
-            storageBucket: "storys-analytics.appspot.com",
-            messagingSenderId: "497967477864"
-        };
-        firebase.initializeApp(config);
-        var database = firebase.database();
-
-        function createCookie(name, value, days) {
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                var expires = "; expires=" + date.toGMTString();
-            }
-            else var expires = "";
-            document.cookie = name + "=" + value + expires + "; path=/; domain=.example.com";
-        }
-
-        //
-        //        var locationRef = firebase.database().ref('user_details').ref('<?php //echo $username;?>//');
-        //        locationRef.on('value', function (snapshot) {
-        //            createCookie('Location=', snapshot.val(), '22');
-        //        //document.cookie = "" + snapshot.val();
-    </script>
-    <title>Register</title>
+    <title>Edit Profile Details</title>
 </head>
 
 <body>
 
 <?php
-
 $servername = "mysql2.gear.host";
 $db_username = "storys";
 $db_password = "Bf0Y~t?2zfRp";
@@ -58,22 +26,22 @@ $firebase_database = "user_location";
 
 //Create connection
 $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
-
 $username = $_COOKIE['username'];
+
+if ($username == null) {
+    header("Location: login.php");
+}
 
 $sql = "SELECT * FROM UserAccounts WHERE Username = '" . $username . "'";
 $results = mysqli_query($conn, $sql);
 $row = $results->fetch_assoc();
 $name = $row['Name'];
 $email = $row['Email'];
-//print_r($_COOKIE);
-//$location = $_COOKIE['Location'];
-
 ?>
 <div class="outer-container">
     <nav>
 
-        <h5>Be a part of <span>Story</span></h5>
+        <a href='dashboard.php'><h5><span>Story</span></h5></a>
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -81,7 +49,6 @@ $email = $row['Email'];
                 "https://twitter.com/shantanu0323" rel="tooltip" target="_blank" title=
                    "Follow us on Twitter"><i class="fa fa-twitter"></i></a>
             </li>
-
 
             <li class="nav-item">
                 <a class="nav-link" data-placement="bottom" href=
@@ -103,7 +70,7 @@ $email = $row['Email'];
         <table class="inner-container">
             <tr>
                 <td>Username</td>
-                <td><input class="username" type="text" name="username" placeholder="Username"
+                <td><input class="username" type="text" name="username" placeholder="Username" disabled
                            value="<?php echo $username; ?>"></td>
             </tr>
             <tr>
@@ -130,18 +97,16 @@ $email = $row['Email'];
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
     $name = $_POST['name'];
     $email = $_POST['email'];
 
-    $sql = "UPDATE UserAccounts SET Username = '" . $username . "', Name = '" . $name . "', Email = '" . $email . "' " .
-        "WHERE Username = '" . $username . "';";
+    $sql = "UPDATE UserAccounts SET Name = '" . $name . "', Email = '" . $email . "' " . "WHERE Username = '" . $username . "';";
     mysqli_query($conn, $sql);
 
-
     if (mysqli_affected_rows($conn) <= 0) {
+      echo "<script>alert('The details have been changed successfully!');</script>";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 

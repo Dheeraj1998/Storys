@@ -204,6 +204,11 @@ div.follow:hover {
 .post-container {
     width:80%;
 }
+
+.settings-container {
+  cursor: pointer;
+}
+
 @font-face {
     font-family: 'scriptina';
     src: url('assets_folder/assets/fonts/scriptina.otf') format('opentype');

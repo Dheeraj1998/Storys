@@ -5,6 +5,7 @@
     <link href="login_styles.css" rel="stylesheet" type="text/css">
     <link href="assets_folder/assets/css/main.css" rel="stylesheet">
     <link href="forgot_styles.css" rel="stylesheet" type="text/css">
+    <link href="register_styles.css" rel="stylesheet" type="text/css">
 
     <!--     Fonts and icons     -->
     <link href="assets_folder/assets/img/apple-icon.png" rel="apple-touch-icon" sizes=
@@ -29,10 +30,14 @@ $username_class = "username";
 $password_class = "password-hidden";
 $display_password_label = "none";
 
-$password = "";
-$username = "";
+$username = $_COOKIE['username'];
+
+if ($username == null) {
+    header("Location: login.php");
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
+    $password = $_POST['new_password'];
 
     $servername = "mysql2.gear.host";
     $db_username = "storys";
@@ -41,54 +46,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Create connection
     $conn = new mysqli("$servername", $db_username, $db_password, $db_name);
-    $sql = "SELECT * FROM UserAccounts WHERE Username = '" . $username . "';";
+    $sql = "UPDATE UserAccounts SET Password = '" . hash('md4', $password) . "' WHERE Username = '" . $username . "';";
 
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) == 0) {
+    if (mysqli_query($conn, $sql) == TRUE) {
         echo "<script>
-                alert('No such username found!');
+                alert('The password has been changed!');
               </script>";
     } else {
-        $row = $result->fetch_assoc();
-        $password = substr(uniqid(rand(), true), 0, 10);
-
-        $sql = "UPDATE UserAccounts SET Password = '" . hash('md4', $password) . "' WHERE Username = '" . $username . "';";
-        $result = mysqli_query($conn, $sql);
-
-        require 'PHPMailer/PHPMailerAutoload.php';
-
-        $mail = new PHPMailer;
-
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Port = 465;
-        $mail->Username = 'help.storys@gmail.com';                 // SMTP username
-        $mail->Password = 'lVjopiaLRF5uaHG';                           // SMTP password
-        $mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
-
-        $mail->From = 'help.storys@gmail.com';
-        $mail->FromName = 'Customer Support - Storys';
-        $mail->addAddress($row['Email'], $row['Name']);     // Add a recipient
-        $mail->addReplyTo('help.storys@gmail.com', 'Customer Support - Storys');
-
-        $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-        $mail->isHTML(true);                                  // Set email format to HTML
-
-        $mail->Subject = 'Forgot your password';
-        $mail->Body    = "Hey <b>" . $row['Name'] . "</b>,
-                            <br><br>There was a recent request at Storys that you had forgotten your password.
-                            <br>The password for your account has been reset to <b>" . $password . "</b>.
-                            <br>Have a great day ahead!
-                            <br><br>Storys";
-
-        if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo '<script>alert("An email with the password has been sent to the associated email account !!!");</script>';
-        }
+      echo "<script>
+              alert('There were some errors!');
+            </script>";
     }
 }
 ?>
@@ -97,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="outer-container">
     <nav>
-        <h5>Get back into <span>Storys</span></h5>
+        <a href = 'dashboard.php'><h5>Get back into <span>Storys</span></h5></a>
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -125,14 +94,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <table class="inner-container">
             <tr>
-                <td>Username</td>
-                <td><input class="<?php echo $username_class; ?>" type="text" name="username" value="<?php echo $username; ?>"></td>
+                <td>New Password</td>
+                <td><input type="password" class = "username" name="new_password"></td>
             </tr>
             <tr>
-                <td colspan="2"><input class="login" type="submit" name="submit" value="Reset Password"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><a class="back-to-login" href="login.php">Back to Login page</a></td>
+                <td colspan="2"><input class="login" type="submit" name="submit" value="Change Password"></td>
             </tr>
     </form>
 </div>
