@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Analysis</title>
+  <link href="analysis_styles.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -143,10 +144,14 @@
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
-          type: 'pie'
+          type: 'pie',
+          backgroundColor:'rgba(255, 255, 255, 0.0)'
       },
       title: {
-          text: 'Category Wise Popularity'
+          text: 'Category Wise Popularity',
+          style: {
+            color: '#ECF0F1'
+          }
       },
       tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -188,6 +193,9 @@
 
   <script>
   Highcharts.chart('timeline_plot', {
+    chart: {
+        backgroundColor:'rgba(255, 255, 255, 0.0)'
+    },
 
     title: {
         text: 'User Activity'
