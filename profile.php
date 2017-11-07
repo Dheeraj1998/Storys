@@ -202,10 +202,14 @@ if ($username == null) {
                       <img src='assets_folder/assets/img/faces/shantanu.jpg'>
                   </td>
                   <td colspan='2' class='name-container'> $name | <a href = 'profile.php?username=" . $row["Username"] . "' class='username-container'> " . $row["Username"] . "</a></td>
-                  <td rowspan='2' width='10%' class='settings-container' onclick = 'deletePost(" . $row["ID"] . ")'>
-                      <img src='assets_folder/assets/img/icons/settings.png'>
-                  </td>
-              </tr>
+                  ";
+
+                  if($profile_username == $username) {
+                    echo "<td rowspan='2' width='10%' class='settings-container' onclick = 'deletePost(" . $row["ID"] . ")'>
+                            <img src='assets_folder/assets/img/icons/settings.png'>
+                          </td>";
+                  }
+          echo "</tr>
               <tr>
                   <td width='13%' class='time-container'>" . $row["Time"] . " | </td>
                   <td width='*' class='date-container'>" . $row["Date"] . "</td>
