@@ -1,3 +1,6 @@
 body {
-  background: black;
+    /*background-color: black;*/
+    background: url("assets_folder/assets/img/analysis_bg.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
