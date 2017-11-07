@@ -152,12 +152,10 @@ $username = $_COOKIE['username'];
                     $gauge_value = 0;
                   }
                 ?>
-                <div style="width: 600px; height: 400px; margin: 0 auto">
-                  <div id="container-endorsements" style="width: 300px; height: 200px; float: left"></div>
-                </div>
             </div>
-        </div>
-        <div class="hashtags-container">
+            <div style="width: 600px; height: 400px; margin: 0 auto">
+              <div id="container-endorsements" style="width: 300px; height: 200px; float: left"></div>
+            </div>
         </div>
     </div>
     <div class="middle-container">
@@ -297,7 +295,8 @@ $username = $_COOKIE['username'];
 var gaugeOptions = {
 
     chart: {
-        type: 'solidgauge'
+        type: 'solidgauge',
+        backgroundColor:'rgba(255, 255, 255, 0.0)'
     },
 
     title: null,
@@ -354,7 +353,10 @@ var chartSpeed = Highcharts.chart('container-endorsements', Highcharts.merge(gau
         min: 0,
         max: 100,
         title: {
-            text: 'Endorsements'
+            text: 'Endorsements',
+            style: {
+              color: '#ECF0F1'
+            }
         }
     },
 
@@ -366,8 +368,7 @@ var chartSpeed = Highcharts.chart('container-endorsements', Highcharts.merge(gau
         name: 'Endorsements',
         data: [<?php echo $gauge_value; ?>],
         dataLabels: {
-            format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+            format: '<div style="text-align:center"><span style="font-size:25px;color:#ECF0F1">{y}</span><br/>' +
                    '<span style="font-size:12px;color:silver">EDs</span></div>'
         },
         tooltip: {
