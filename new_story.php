@@ -80,9 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $username = $_COOKIE['username'];
 
-    $servername = "mysql2.gear.host";
-    $db_username = "storys";
-    $db_password = "Bf0Y~t?2zfRp";
+    $user_credentials = file_get_contents("credentials.txt");
+    $user_credentials = explode('|', $user_credentials);
+
+    $servername = $user_credentials[0];
+    $db_username = $user_credentials[1];
+    $db_password = $user_credentials[2];
     $db_name = "Storys";
 
     //Create connection
